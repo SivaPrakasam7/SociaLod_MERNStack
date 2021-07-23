@@ -1,0 +1,78 @@
+{
+    "SociaLod": {
+        "Goal": "User data integration for different social media",
+        "Description": "Combining all user data from different social media sites",
+        "Process": "Scrap user information from social media",
+        "Secondary-goal": "Large human database",
+        "Referencce": "@reference.json",
+        "Requirements": {
+            "Scrap-from": {
+                "Priority": "Sites",
+                "1": "Google",
+                "2": "Facebook",
+                "3": "Linked In",
+                "4": "Github",
+                "5": "Instagram",
+                "6": "Pinterest",
+                "7": "Twitter",
+                "8": "Tiktok",
+                "9": "Reddit",
+                "10": "Custom site"
+            },
+            "Platforms": {
+                "Wire-frame": "Figma",
+                "Front-end": {
+                    "flutter": {
+                        "Packages": {},
+                        "Requirements": []
+                    }
+                },
+                "Back-end-API": {
+                    "Express js": {
+                        "Packages": {},
+                        "Requirements": []
+                    }
+                },
+                "Database": "MongoDB"
+            }
+        },
+        "Project": {
+            "Schema": "@modules.pln/schema.json",
+            "Back-end-API": "@@modules.pln/back-end.json",
+            "Front-end": "@@modules.pln/front-end.json"
+        },
+        "Task": {
+            "1": "@modules.pln/plan-task.json",
+            "2": "@modules.pln/back-end.json",
+            "3": "@modules.pln/front-end.json",
+            "4": "@modules.pln/test-case.json"
+        },
+        "Testing": "@@modules.pln/test-case.json",
+        "Duration": {
+            "Start-@": "",
+            "Estimated-duration": "",
+            "Completed-@": ""
+        }
+    },
+    "Daily notes": {
+        "Previous-day": [
+            "First test scraping in nodejs use bin",
+            "Twitter scraper",
+            "Github Scraper",
+            "Pinterest scraper"
+        ],
+        "Today": [
+            "Started at 28-07-2021 Mon 08:45",
+            "Instagram scraper",
+            "Reddit scraper",
+            "Tiktok scraper"
+        ],
+        "Next-day": [
+            "Facebook scraper",
+            "LinkedIn scraper"
+        ],
+        "Problem":[
+            "Tiktok verify page"
+        ]
+    }
+}

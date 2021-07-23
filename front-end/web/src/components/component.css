@@ -1,0 +1,140 @@
+/* Text field */
+
+.textfield{
+    /* background: linear-gradient(to top left,rgba(255, 250, 250, 0.05) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%); */
+    /* box-shadow: 1px 1px 5px 0px black,0px 0px 0px 1px rgba(255, 250, 250, 0.5); */
+    height: fit-content;
+    width: fit-content;
+    margin: 2rem;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 250, 250, 0.2);
+}
+
+.textfield input[type="text"],.textfield input[type="password"]{
+  height: 1.5rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+}
+
+.textfield img{
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.textfield:hover{
+  border-bottom: 1px solid rgba(255, 250, 250, 0.5);
+}
+
+/* Button */
+
+.button{
+  background: linear-gradient(to top left,rgba(255, 250, 250, 0.05) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%);
+  box-shadow: 1px 1px 5px 0px black,0px 0px 0px 1px rgba(255, 250, 250, 0.5);
+  border: none;
+  outline: none;
+  min-width: 5rem;
+  min-height: 2rem;
+  border-radius: 0.5rem;
+  font-size: 100%;
+  margin-top: 1rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.button:hover{
+  background: linear-gradient(to bottom right,rgba(255, 250, 250, 0.05) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%);
+}
+
+/* Profile */
+
+.profile{
+  background: linear-gradient(to top left,rgba(255, 250, 250, 0.05) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%);
+  box-shadow: 1px 1px 5px 0px black,0px 0px 0px 2px rgba(255, 250, 250, 0.5);
+  border: none;
+  outline: none;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+}
+
+/* Icon */
+
+.icon{
+  background: linear-gradient(to top left,rgba(255, 250, 250, 0.05) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%);
+  box-shadow: 1px 1px 5px 0px black,0px 0px 0px 1px rgba(255, 250, 250, 0.5);
+  border: none;
+  outline: none;
+  padding: 0.2rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  transform: scale(0.95);
+  cursor: pointer;
+  stroke: snow;
+}
+
+.icon:hover{
+  background: linear-gradient(to bottom right,rgba(255, 250, 250, 0.1) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%);
+  transform: scale(1);
+}
+
+/* Table */
+
+.table{
+  width: 90%;
+  height: fit-content;
+}
+.table tr th{
+  background: linear-gradient(to top left,rgba(255, 250, 250, 0.2) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%);
+}
+
+.table tr td,.table tr th{
+  box-shadow: 1px 1px 5px 0px black,0px 0px 0px 2px rgba(255, 250, 250, 0.5);
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+}
+
+/* Title */
+.title{
+  color: var(--text);
+  font-size: 120%;
+}
+
+/* Link text */
+.linktext{
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Navigation bar */
+
+nav{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+nav .a{
+  padding: 0.6rem 0.2rem;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 250, 250, 0.5);
+}
+
+nav .a:hover{
+  box-shadow: 0px -15px 6px -10px snow inset;
+  /* color:black; */
+}
+
+/* Paragraph */
+
+.p{
+  align-self: center;
+  text-align: justify;
+  margin-left:5%;
+  margin-right:5%;
+  margin-top:5%;
+}

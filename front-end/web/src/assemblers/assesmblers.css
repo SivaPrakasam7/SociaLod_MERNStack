@@ -1,0 +1,13 @@
+/* Main view */
+
+.main{
+    width: 80%;
+    height: 80%;
+}
+
+/* Login view */
+
+.login{
+    min-width: fit-content;
+    min-height: fit-content;
+}

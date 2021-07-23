@@ -1,0 +1,337 @@
+{
+    "Back-end-API": {
+        "Desc": "Backend details",
+        "Modules": {
+            "Google": {
+                "Desc": "Google Authendiiaction",
+                "Require": {
+                    "Package": "passport-google-oauth2",
+                    "Requirements": [
+                        "Google-client-ID",
+                        "Google-API-ID"
+                    ]
+                },
+                "Goal-data": {
+                    "Profile": {
+                        "Picture": "Google profile picture link",
+                        "Name": "Username",
+                        "Email": "GMail ID",
+                        "Other": "Check and update"
+                    }
+                }
+            },
+            "Facebook": {
+                "Desc": "Facebook public profile",
+                "Require": "Login required for scraping",
+                "Goal-data": {
+                    "Profile": {
+                        "Picture": "Facebook profle picture link",
+                        "Name": "Username",
+                        "Other": "Check and update"
+                    }
+                }
+            },
+            "Linked-in": {
+                "Desc": "Linked In public profile",
+                "Require": "Login required for scraping",
+                "Goal-data": {
+                    "Profile": {
+                        "Picture": "Linked In profle picture link",
+                        "Name": "Username",
+                        "Other": "Check and update"
+                    }
+                }
+            },
+            "Github": {
+                "Desc": "Github public profile",
+                "Goal-data": {
+                    "Profile": {
+                        "xpath": "//img[contains(@src,'https://avatars.githubusercontent.com/u/') and contains(@src,'?v=4')]",
+                        "func": "elem.getAttribute('src')"
+                    },
+                    "Name": {
+                        "xpath": "//h1[contains(@class,'vcard-names')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                    },
+                    "About": {
+                        "xpath": "//div[contains(@class,'js-profile-editable-area d-flex flex-column d-md-block')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})"
+                    },
+                    "Achivements": {
+                        "xpath": "//div[contains(@class,'border-top color-border-secondary pt-3 mt-3 d-none d-md-block')]",
+                        "func": {
+                            "Img": "elem.findElement(By.xpath(\".//img[contains(@src,'https://github.githubassets.com/')]\")).then(e=>{return e.getAttribute('src')}).catch(err=>{return null})",
+                            "AltText": "elem.findElement(By.xpath(\".//img[contains(@src,'https://github.githubassets.com/')]\")).then(e=>{return e.getAttribute('alt')}).catch(err=>{return null})"
+                        }
+                    },
+                    "Organization": {
+                        "xpath": "//a[contains(@data-hovercard-type,'organization')]",
+                        "func": {
+                            "Link": "elem.getAttribute('href')",
+                            "Payload": "elem.getAttribute('data-hydro-click')"
+                        }
+                    },
+                    "Projects": {
+                        "xpath": "//div[contains(@class,'pinned-item-list-item-content')]",
+                        "func": {
+                            "Link": "elem.findElement(By.xpath(\".//a[contains(@class,'text-bold flex-auto min-width-0 ')]\")).then(e=>{return e.getAttribute('href')}).catch(err=>{return null})",
+                            "Content": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})"
+                        }
+                    },
+                    "Activity": {
+                        "xpath": "//div[contains(@class,'TimelineItem-body')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})"
+                    },
+                    "Social": {
+                        "xpath": "//a[contains(@href,'https://www.linkedin.com/in/') or contains(@href,'https://www.facebook.com/') or contains(@href,'mailto:') or contains(@href,'https://t.me/') or contains(@href,'https://www.instagram.com/') or contains(@href,'https://www.pinterest.com/') or contains(@href,'https://www.reddit.com/user/') or contains(@href,'https://twitter.com/')]",
+                        "func": "elem.getAttribute('href')"
+                    }
+                }
+            },
+            "Instagram": {
+                "Desc": "Instagram public profile",
+                "Goal-data": {
+                    "Profile": {
+                        "xpath": "//img[contains(@src,'https://instagram.fcjb3-1.fna.fbcdn.net/v/t51.2885-19/')]",
+                        "func": "elem.getAttribute('src')"
+                    },
+                    "Name": {
+                        "xpath": "//h2[contains(@class,'_7UhW9       fKFbl yUEEX   KV-D4              fDxYl')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                    },
+                    "Follow_posts": {
+                        "xpath": "//ul[contains(@class,'k9GMp')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                    },
+                    "About": {
+                        "xpath": "//div[contains(@class,'-vDIg')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                    },
+                    "Images": {
+                        "xpath": "//div[contains(@class,'v1Nh3 kIKUG  _bz0w')]",
+                        "func": {
+                            "Link": "elem.findElement(By.xpath(\".//a[contains(@href,'/p/')]\")).then(e=>{return e.getAttribute('href')}).catch(err=>{return null})",
+                            "Img": "elem.findElement(By.xpath(\".//img\")).then(e=>{return e.getAttribute('src')}).catch(err=>{return null})",
+                            "AltText": "elem.findElement(By.xpath(\".//img\")).then(e=>{return e.getAttribute('alt')}).catch(err=>{return null})",
+                        }
+                    },
+                    "Social": {
+                        "xpath": "//a[contains(@href,'https://www.linkedin.com/in/') or contains(@href,'https://www.facebook.com/') or contains(@href,'mailto:') or contains(@href,'https://t.me/') or contains(@href,'https://www.instagram.com/') or contains(@href,'https://www.pinterest.com/') or contains(@href,'https://www.reddit.com/user/') or contains(@href,'https://github.com/')]",
+                        "func": "elem.getAttribute('href')"
+                    }
+                }
+            },
+            "Pinterest": {
+                "Desc": "Pinterest public profile",
+                "Goal-data": {
+                    "Profile": {
+                        "xpath": "//img[contains(@class,'hCL kVc L4E MIw')]",
+                        "func": "elem.getAttribute('src')"
+                    },
+                    "Name": {
+                        "xpath": "//img[contains(@class,'hCL kVc L4E MIw')]",
+                        "func": "elem.getAttribute('alt')",
+                    },
+                    "Images": {
+                        "xpath": "//a[contains(@class,'boardLinkWrapper')]",
+                        "func": {
+                            "Link": "elem.getAttribute('href')",
+                            "Content": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                        }
+                    },
+                    "Social": {
+                        "xpath": "//a[contains(@href,'https://www.linkedin.com/in/') or contains(@href,'https://www.facebook.com/') or contains(@href,'mailto:') or contains(@href,'https://t.me/') or contains(@href,'https://www.instagram.com/') or contains(@href,'https://www.pinterest.com/') or contains(@href,'https://www.reddit.com/user/') or contains(@href,'https://github.com/')]",
+                        "func": "elem.getAttribute('href')"
+                    }
+                }
+            },
+            "Twitter": {
+                "Desc": "Twitter public profile",
+                "Goal-data": {
+                    "Profile": {
+                        "xpath": "//img[contains(@src,'https://pbs.twimg.com/profile_images/')]",
+                        "func": "elem.getAttribute('src')"
+                    },
+                    "Name": {
+                        "xpath": "//div[contains(@class,'css-1dbjc4n r-1wbh5a2 r-dnmrzs r-1ny4l3l')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                    },
+                    "Intro": {
+                        "xpath": "//div[contains(@class,'css-1dbjc4n r-1ifxtd0 r-ymttw5 r-ttdzmv')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean).slice(3)})"
+                    },
+                    "Tweets": {
+                        "xpath": "//div[@data-testid='tweet']",
+                        "func": {
+                            "Content": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                            "Img": "elem.findElement(By.xpath(\".//img[contains(@src,'https://pbs.twimg.com/media/')]\")).then(e=>{return e.getAttribute('src')}).catch(err=>{return null})",
+                            "Link": "elem.findElement(By.xpath(\".//a[contains(@href,'/status/') and not(contains(@href,'/photo/1'))]\")).then(e=>{return e.getAttribute('href')}).catch(err=>{return null})"
+                        }
+                    },
+                    "Social": {
+                        "xpath": "//a[contains(@href,'https://www.linkedin.com/in/') or contains(@href,'https://www.facebook.com/') or contains(@href,'mailto:') or contains(@href,'https://t.me/') or contains(@href,'https://www.instagram.com/') or contains(@href,'https://www.pinterest.com/') or contains(@href,'https://www.reddit.com/user/') or contains(@href,'https://github.com/')]",
+                        "func": "elem.getAttribute('href')"
+                    }
+                }
+            },
+            "Tiktok": {
+                "Desc": "Tiktok public profile",
+                "Goal-data": {
+                    "Profile": {
+                        "xpath": "//img[@alt='']",
+                        "func": "elem.getAttribute('src')"
+                    },
+                    "Name": {
+                        "xpath": "//h1[contains(@class,'share-sub-title')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                    },
+                    "Follow": {
+                        "xpath": "//h2[contains(@class,'count-infos')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})"
+                    },
+                    "Description": {
+                        "xpath": "//h2[contains(@class,'share-desc mt10')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})"
+                    },
+                    "Vidoes": {
+                        "xpath": "//a[contains(@href,'video')]",
+                        "func": "elem.getAttribute('href')"
+                    },
+                    "Social": {
+                        "xpath": "//a[contains(@href,'https://www.linkedin.com/in/') or contains(@href,'https://www.facebook.com/') or contains(@href,'mailto:') or contains(@href,'https://t.me/') or contains(@href,'https://www.instagram.com/') or contains(@href,'https://www.pinterest.com/') or contains(@href,'https://www.reddit.com/user/') or contains(@href,'https://github.com/')]",
+                        "func": "elem.getAttribute('href')"
+                    }
+                }
+            },
+            "Reddit": {
+                "Desc": "Reddit public profile",
+                "Goal-data": {
+                    "Profile": {
+                        "xpath": "//img[contains(@class,'_2bLCGrtCCJIMNCZgmAMZFM') or contains(@class,'_2TN8dEgAQbSyKntWpSPYM7 _3Y33QReHCnUZm9ewFAsk8C')]",
+                        "func": "elem.getAttribute('src')"
+                    },
+                    "Name": {
+                        "xpath": "//h1[contains(@class,'_3LM4tRaExed4x1wBfK1pmg')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})",
+                    },
+                    "About": {
+                        "xpath": "//div[contains(@class,'bVfceI5F_twrnRcVO1328')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})"
+                    },
+                    "Posts": {
+                        "xpath": "//div[contains(@class,'_1qftyZQ2bhqP62lbPjoGAh _3Qkp11fjcAw9I9wtLo8frE _3KGXodqw9Ht3MoBpe8_gzB scrollerItem')]",
+                        "func": "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})"
+                    },
+                    "Trophy": {
+                        "xpath": "//div[contains(@class,'_2CUZHyZpRYmdvLE9tOI-2L QY_PhyoOHbRd-_92ivr-m')]",
+                        "func": {
+                            "Img": "elem.findElement(By.xpath(\".//img[contains(@src,'https://www.redditstatic.com/')]\")).then(e=>{return e.getAttribute('src')}).catch(err=>{return null})",
+                            "Content": "elem.findElement(By.xpath(\".//img[contains(@src,'https://www.redditstatic.com/')]\")).then(e=>{return e.getAttribute('title')}).catch(err=>{return null})"
+                        }
+                    },
+                    "Social": {
+                        "xpath": "//a[contains(@href,'https://www.linkedin.com/in/') or contains(@href,'https://www.facebook.com/') or contains(@href,'mailto:') or contains(@href,'https://t.me/') or contains(@href,'https://www.instagram.com/') or contains(@href,'https://www.pinterest.com/') or contains(@href,'https://www.reddit.com/user/') or contains(@href,'https://github.com/')]",
+                        "func": "elem.getAttribute('href')"
+                    }
+                }
+            },
+            "Custom-site": {
+                "Desc": "Custom site public profile",
+                "Require": {
+                    "Package": "",
+                    "Requirements": []
+                },
+                "Goal-data": {
+                    "Profile": {
+                        "Picture": "Custom site profle picture link",
+                        "Name": "Username",
+                        "Domain-name": "User custom domain",
+                        "Other": "Check and update"
+                    }
+                }
+            }
+        },
+        "Config": {},
+        "Services": {},
+        "Roures": {
+            "Chromedriver": "Based on browser version"
+        },
+        "Packages": {
+            "selenium-webdriver": "High-level inofrmation scraping"
+        },
+        "Bin": [
+            "Youtube info"
+        ],
+        "Task": {
+            "Completed": {
+                "3.Scraping.Twitter": "Twitter data scrap module completed"
+            },
+            "Current": "3.Scraping.Tiktok@Data scrap",
+            "Queued": {
+                "Priority": "Task",
+                "1": {
+                    "Design schema": "@modules.pln/Schema.json"
+                },
+                "2": {
+                    "User sign in, registration": {
+                        "Basic login": "SignIn with google",
+                        "Inner details update": "Social media links update"
+                    }
+                },
+                "3": {
+                    "Scraping": {
+                        "Google": {},
+                        "Facebook": {},
+                        "Linked-In": {},
+                        "Github": "Completed",
+                        "Instagram": "Completed",
+                        "Pinterest": "Completed",
+                        "Twitter": "Completed",
+                        "Tiktok": "Completed",
+                        "Reddit": "Completed",
+                        "Youtube": "Completed",
+                        "Custom-site": {}
+                    }
+                },
+                "4": {
+                    "Structure Scraped data": "@modules.pln/Schema.json"
+                },
+                "5": {
+                    "Final data": {
+                        "User-data": {
+                            "Uniqe ID generation": "@modules.pln/Schema.json",
+                            "Secured-data": "@modules.pln/Schema.json"
+                        }
+                    }
+                },
+                "6": {
+                    "Implement-database": {
+                        "Mongodb": "Data store",
+                        "1": "User data store",
+                        "2": "Search indexing",
+                        "3": "Time evaluation"
+                    }
+                },
+                "7": {
+                    "Implement API": {
+                        "1": "Pass data",
+                        "2": "Security imporovement",
+                        "3": "Final test"
+                    }
+                },
+                "8": {
+                    "After front-end implementation, Test with API": {
+                        "1": "Security test",
+                        "2": "User data intarction test",
+                        "3": "Scalability test"
+                    }
+                }
+            }
+        },
+        "Duration": {
+            "Start-@": "29/6/2021 *",
+            "Estimated-duration": "5/6/2021 *",
+            "Completed-@": ""
+        }
+    }
+}

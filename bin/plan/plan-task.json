@@ -1,0 +1,40 @@
+{
+    "Plan": {
+        "Desc": "Planning status",
+        "Task": {
+            "Completed": {
+                "-1":"Basic plan",
+                "0": "Back-end planing",
+                "9":"Front-end planning",
+                "16":"Test-case planing"
+            },
+            "Current": "4@Queued",
+            "Queued": {
+                "Priority": "Task",
+                "-1":"Basic plan",
+                "0": "Back-end planing",
+                "1": "Package selection and learning",
+                "2": "Analyze user data from social media Design schema",
+                "3": "User sign in, registration",
+                "4": "Scraping",
+                "5": "Restructure Scraped data",
+                "6": "Final data",
+                "7": "Implement-database",
+                "8": "Implement API",
+                "9": "Front-end planning",
+                "10": "After front-end implementation, Test with front",
+                "11": "Creatr wire-farme",
+                "12": "Layout modules creation",
+                "13":"Backend implementaation",
+                "14":"testing Layout modules",
+                "15":"Deployment",
+                "16":"Test-case planing"
+            }
+        },
+        "Duration": {
+            "Start-@": "28-07-2021 Mon 08:45",
+            "Estimated-duration": "",
+            "Completed-@": ""
+        }
+    }
+}
