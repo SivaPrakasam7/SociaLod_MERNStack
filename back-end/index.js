@@ -22,5 +22,5 @@ app.use('/api', route);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-    console.log(`Server listen at http://localhost:${process.env.PORT}`)
+    console.log(`Server listen at ${process.env.URL}`)
 });

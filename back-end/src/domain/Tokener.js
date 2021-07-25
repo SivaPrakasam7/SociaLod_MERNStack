@@ -2,23 +2,31 @@ const CryptoJS = require("crypto-js");
 
 var TOKEN_DB = [];
 
-const btoa = (txt) => {
-    return Buffer.from(txt).toString('base64');
-}
+// const btoa = (txt) => {
+//     return Buffer.from(txt).toString('base64');
+// }
 
-const atob = (txt) => {
-    return Buffer.from(txt, 'base64').toString();
-}
+// const atob = (txt) => {
+//     return Buffer.from(txt, 'base64').toString();
+// }
 
 const ENCODE = async (payload, key) => {
-    return CryptoJS.TripleDES.encrypt(JSON.stringify(payload), key).toString();
+    return Buffer.from(CryptoJS.TripleDES.encrypt(JSON.stringify(payload), key).toString()).toString('base64');
 };
 
 const DECODE = async (token, key) => {
-    return JSON.parse(CryptoJS.TripleDES.decrypt(token, key).toString(CryptoJS.enc.Utf8));
+    return JSON.parse(CryptoJS.TripleDES.decrypt(Buffer.from(token, 'base64').toString(), key).toString(CryptoJS.enc.Utf8));
 };
 
-const VERIFY = async (token, key) => {
+
+exports.generate = async (payload, key) => {
+    token = await ENCODE(payload, key);
+    if (!JSON.stringify(TOKEN_DB).includes(token)) TOKEN_DB.push({ token: token, expire: Date.now() });
+    else return { err: true, message: 'Token already exists' };
+    return { err: false, message: { token: token } };
+};
+
+exports.verify = async (token, key) => {
     console.log(TOKEN_DB);
     for (var i in TOKEN_DB) {
         if (TOKEN_DB[i].token === token) {
@@ -32,19 +40,9 @@ const VERIFY = async (token, key) => {
     return { err: true, message: 'Token not match' };
 };
 
-exports.generate = async (payload, key) => {
-    token = await ENCODE(payload, key);
-    if (!JSON.stringify(TOKEN_DB).includes(token)) TOKEN_DB.push({ token: token, expire: Date.now() });
-    else return { err: true, message: 'Token already exists' };
-    return { err: false, message: { token: token } };
-};
-
-exports.verify = VERIFY;
-
-exports.destroy = async (token, key) => {
-    stats = await VERIFY(token, key);
-    if (!stats.err) {
+exports.destroy = async (token, verify) => {
+    if (!verify.err) {
         TOKEN_DB = TOKEN_DB.filter(v => !(token === v.token));
         return { err: false, message: 'Token destroyed' };
-    } else return stats;
+    } else return verify;
 };

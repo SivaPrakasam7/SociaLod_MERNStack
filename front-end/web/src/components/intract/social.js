@@ -5,6 +5,8 @@ export default class Social extends Component {
     render() {
         return (
             <div class="right-bottom">
+                <Licon align="margin" src="https://img.icons8.com/material-sharp/24/ffffff/mail.png" link="mailto:prakasams22@gmail.com" />
+                <Licon align="margin" src="https://img.icons8.com/material-outlined/24/ffffff/phone.png" link="https://wa.me/916374399577" />
                 <Licon link="https://sivaprakasam.educationhost.cloud" align="margin" src='https://img.icons8.com/ios-filled/50/ffffff/business-network.png' />
                 <Licon link="https://www.linkedin.com/in/siva-prakasam" align="margin" src='https://img.icons8.com/ios-filled/50/ffffff/linkedin-circled.png' />
                 <Licon link="https://github.com/SivaPrakasam7" align="margin" src='https://img.icons8.com/ios-filled/50/ffffff/github.png' />

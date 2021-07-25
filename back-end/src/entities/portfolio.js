@@ -1,3 +1,4 @@
+// Exports
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
     Main: "`${this.username}`",

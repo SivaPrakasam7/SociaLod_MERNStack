@@ -18,8 +18,7 @@ const mongoose = require('mongoose'),
             type: String,
             required: true
         },
-        Networks: {
-        },
+        Networks: [],
         About: {
             type: String,
             default: 'Nothing to show'

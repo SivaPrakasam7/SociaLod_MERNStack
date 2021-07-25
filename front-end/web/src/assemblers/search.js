@@ -22,8 +22,8 @@ export default class Main extends Component {
                     <Textfield type="text" icon="https://img.icons8.com/ios-filled/50/ffffff/business-network.png" cont="add social links" />
                     <Button txt="Add" />
                     <div class="padding bottom" id="Sociallinks">
-                        <Licon align="margin" src="https://img.icons8.com/material-sharp/24/ffffff/mail.png" link="" />
-                        <Licon align="margin" src="https://img.icons8.com/material-outlined/24/ffffff/phone.png" link="" />
+                        <Licon align="margin" src="https://img.icons8.com/material-sharp/24/ffffff/mail.png" link="mailto:" />
+                        <Licon align="margin" src="https://img.icons8.com/material-outlined/24/ffffff/phone.png" link="https://wa.me/91" />
                         <Licon align="margin" src="https://img.icons8.com/material-rounded/24/ffffff/facebook.png" link="" />
                         <Licon align="margin" src="https://img.icons8.com/material-outlined/24/ffffff/github.png" link="" />
                         <Licon align="margin" src="https://img.icons8.com/ios-glyphs/30/ffffff/instagram-new.png" link="" />
