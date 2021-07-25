@@ -39,7 +39,6 @@
   min-height: 2rem;
   border-radius: 0.5rem;
   font-size: 100%;
-  margin-top: 1rem;
   color: var(--text);
   cursor: pointer;
 }
@@ -55,8 +54,8 @@
   box-shadow: 1px 1px 5px 0px black,0px 0px 0px 2px rgba(255, 250, 250, 0.5);
   border: none;
   outline: none;
-  width: 5rem;
-  height: 5rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 100%;
 }
 
@@ -112,9 +111,11 @@
 /* Navigation bar */
 
 nav{
+  position: fixed;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  z-index: 100;
 }
 
 nav .a{
@@ -124,7 +125,7 @@ nav .a{
   border-bottom: 1px solid rgba(255, 250, 250, 0.5);
 }
 
-nav .a:hover{
+nav .a:hover,.active{
   box-shadow: 0px -15px 6px -10px snow inset;
   /* color:black; */
 }
@@ -137,4 +138,56 @@ nav .a:hover{
   margin-left:5%;
   margin-right:5%;
   margin-top:5%;
+}
+
+/* Search */
+.search{
+  padding: 0rem 0rem !important;
+  margin: 0rem;
+  border-radius: 5rem;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search input[type="text"]{
+  width: 100%;
+  margin-left: 0rem;
+  margin-right: 0rem;
+  text-align: center;
+}
+
+/* List user */
+.luser{
+  background: linear-gradient(to top left,rgba(255, 250, 250, 0.05) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%);
+  box-shadow: 1px 1px 5px 0px black,0px 0px 0px 1px rgba(255, 250, 250, 0.5);
+  width: 100%;
+  padding: 0rem;
+  border-radius: 0.5rem;
+  border-bottom-left-radius: 3rem;
+  border-top-left-radius: 3rem;
+  text-align: left;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.luser:hover{
+  background: linear-gradient(to bottom right,rgba(255, 250, 250, 0.05) 20%,rgba(255, 250, 250, 0.15) 80%,rgba(255, 250, 250, 0.2) 90%);
+}
+
+.luser .profile{
+  width: 5rem;
+  height: 5rem;
+  margin-top: 0.2rem;
+}
+
+/* View panel */
+
+.view{
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
 }

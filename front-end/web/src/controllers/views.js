@@ -1,4 +1,5 @@
-import Main from '../assemblers/main';
+import Home from '../assemblers/home';
+import Search from '../assemblers/search';
 import Login from '../assemblers/login';
 import Register from '../assemblers/register';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -7,7 +8,10 @@ function Auth() {
     return (
         <Router>
             <Route path='/' exact>
-                <Main />
+                <Home />
+            </Route>
+            <Route path='/search' exact>
+                <Search />
             </Route>
             <Route path='/signin' exact>
                 <Login />

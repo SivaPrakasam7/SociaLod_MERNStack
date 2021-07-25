@@ -1,8 +1,8 @@
 import { Component } from "react";
-import Textfield from '../components/widgets/textfield';
-import Title from '../components/widgets/title';
-import Icon from '../components/widgets/icon';
-import Link from '../components/widgets/link';
+import Textfield from '../components/inputs/textfield';
+import Title from '../components/views/title';
+import Icon from '../components/intract/icon';
+import Link from '../components/views/link';
 
 export default class Login extends Component {
     render() {

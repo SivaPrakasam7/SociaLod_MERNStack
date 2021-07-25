@@ -1,7 +1,7 @@
 import { Component } from "react";
-import Title from '../components/widgets/title';
-import Para from '../components/widgets/paragraph';
-import Profile from '../components/widgets/profile';
+import Title from '../components/views/title';
+import Para from '../components/views/paragraph';
+import Profile from '../components/views/profile';
 
 export default class Main extends Component {
     render() {

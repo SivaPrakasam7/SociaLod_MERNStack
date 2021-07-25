@@ -5,7 +5,8 @@ export default class Navigation extends Component {
         return (
             <nav>
                 <a class="a" href="/">Home</a>
-                <a class="a" href="/signin">Sign In/Up</a>
+                <a class="a" href="/search">Search</a>
+                <a class="a" href="/signup">Sign Up/In</a>
             </nav>
         );
     }

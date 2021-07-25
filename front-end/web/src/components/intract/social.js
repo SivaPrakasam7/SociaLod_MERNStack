@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Licon from '../../../components/widgets/licon';
+import Licon from './licon';
 
 export default class Social extends Component {
     render() {

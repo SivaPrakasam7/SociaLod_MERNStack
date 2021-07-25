@@ -43,6 +43,14 @@ body{
   transform: translate(-50%,-50%);
 }
 
+/* mobile center */
+.mcenter{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 /* right */
 
 .right-top{
@@ -54,12 +62,13 @@ body{
 }
 
 .right-bottom{
-  position: absolute;
+  position: fixed;
   margin: auto;
   left: auto;
   top:auto;
   right: 0.5rem;
   bottom: 0.5rem;
+  z-index: 100;
 }
 
 .left-top{
@@ -72,9 +81,9 @@ body{
 .left-bottom{
   position: absolute;
   margin: auto;
-  left: -0.5rem;
+  left: -1rem;
   top:auto;
-  bottom: -0.5rem;
+  bottom: -1rem;
 }
 
 .fsize{
@@ -86,12 +95,25 @@ body{
   font-size: 150% !important;
 }
 
+.h2{
+  font-size: 130%;
+}
+
 .bold{
   font-weight: bolder !important;
 }
 
 .margin{
   margin: 0.2rem;
+}
+
+.left{
+  margin-left: 90%;
+}
+
+.bottom{
+  margin-top: auto;
+  margin-bottom: 0rem;
 }
 
 /* Hover */
@@ -101,4 +123,25 @@ body{
 
 .pop:hover{
   transform: scale(1);
+}
+
+/* Padding */
+.padding{
+  padding: 0.5rem;
+}
+
+/* Scroll bar */
+
+::-webkit-scrollbar{
+  width: 0px;
+  /* background: snow; */
+}
+
+@media only screen and (max-width:426px) {
+  .mcenter{
+      position: relative;
+      top:auto;
+      left: auto;
+      transform: none;
+  }
 }
