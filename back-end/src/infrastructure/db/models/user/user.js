@@ -18,11 +18,12 @@ const mongoose = require('mongoose'),
             type: String,
             required: true
         },
-        Networks: [],
+        Networks: {},
         About: {
             type: String,
             default: 'Nothing to show'
-        }
+        },
+        Views:[Object],
     };
 
 for (var v of walker('../../../../src/infrastructure/db/models/sites', 'js')) {

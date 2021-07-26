@@ -14,7 +14,12 @@ connectMDB();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send("API started");
+    var info = `<h1>SociaLod Backend Manual</h1><table><tr><th>Paths</th><th>Methods</th><th>Parameters</th></tr>`;
+    for (var i of route.stack) {
+        info = info + `<tr><td>${i.route.path}</td><td>${Object.keys(i.route.methods)}</td><td>${[]}</td></tr>`;
+    }
+    info = info + "</table>";
+    res.status(200).send(info);
 });
 
 app.use('/api', route);

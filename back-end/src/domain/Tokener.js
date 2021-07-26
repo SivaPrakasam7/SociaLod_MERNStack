@@ -2,14 +2,6 @@ const CryptoJS = require("crypto-js");
 
 var TOKEN_DB = [];
 
-// const btoa = (txt) => {
-//     return Buffer.from(txt).toString('base64');
-// }
-
-// const atob = (txt) => {
-//     return Buffer.from(txt, 'base64').toString();
-// }
-
 const ENCODE = async (payload, key) => {
     return Buffer.from(CryptoJS.TripleDES.encrypt(JSON.stringify(payload), key).toString()).toString('base64');
 };
@@ -27,7 +19,6 @@ exports.generate = async (payload, key) => {
 };
 
 exports.verify = async (token, key) => {
-    console.log(TOKEN_DB);
     for (var i in TOKEN_DB) {
         if (TOKEN_DB[i].token === token) {
             payload = await DECODE(token, key);

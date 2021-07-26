@@ -8,7 +8,10 @@ exports.login = async (data) => {
     const { email, password } = data;
     const info = await User.findOne({ Email: email }, 'password');
     return await bcrypt.compare(password, info.password)
-        .then(async (ok) => { return await tokener.generate({ id: info._id }, process.env.SECRET_KEY) })
+        .then(async (ok) => {
+            if (ok) return await tokener.generate({ id: info._id }, process.env.SECRET_KEY);
+            else return await { err: true, message: "Incorrect password" }
+        })
         .catch(err => { return { err: true, message: err } });
 };
 
