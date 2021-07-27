@@ -8,7 +8,8 @@ const mongoose = require('mongoose'),
         Username: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            unique: true
         },
         Name: [[{
             type: String,
@@ -24,7 +25,7 @@ const mongoose = require('mongoose'),
         Links: [String],
         Stats: [String],
         Social: [String]
-    });
+    }, { versionKey: false });
 
 exports.schema = youtube;
 exports.model = mongoose.model('youtube', youtube);

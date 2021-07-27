@@ -8,13 +8,14 @@ const mongoose = require('mongoose'),
         Username: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            unique: true
         },
-        Name: {
+        Name: [{
             type: String,
             required: true,
             trim: true
-        },
+        }],
         Profile: {
             type: String,
             required: true
@@ -116,7 +117,7 @@ const mongoose = require('mongoose'),
             Content: [String]
         }],
         Social: [String]
-    });
+    }, { versionKey: false });
 
 exports.schema = facebook;
 exports.model = mongoose.model('facebook', facebook);

@@ -8,7 +8,8 @@ const mongoose = require('mongoose'),
         Username: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            unique: true
         },
         Name: {
             type: String,
@@ -127,7 +128,7 @@ const mongoose = require('mongoose'),
         }],
         Contact_info: [String],
         Social: [String]
-    });
+    }, { versionKey: false });
 
 exports.schema = linkedin;
 exports.model = mongoose.model('linkedin', linkedin);

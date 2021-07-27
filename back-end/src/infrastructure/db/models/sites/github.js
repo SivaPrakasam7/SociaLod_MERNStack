@@ -8,7 +8,8 @@ const mongoose = require('mongoose'),
         Username: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            unique: true
         },
         Name: [{
             type: String,
@@ -46,7 +47,7 @@ const mongoose = require('mongoose'),
         }],
         Activity: [[String]],
         Social: [String]
-    });
+    }, { versionKey: false });
 
 exports.schema = github;
 exports.model = mongoose.model('github', github);

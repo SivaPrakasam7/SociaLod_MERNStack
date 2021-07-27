@@ -8,7 +8,8 @@ const mongoose = require('mongoose'),
         Username: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            unique: true
         },
         Name: {
             type: String,
@@ -23,7 +24,7 @@ const mongoose = require('mongoose'),
         Description: [String],
         Videos: [String],
         Social: [String]
-    });
+    }, { versionKey: false });
 
 exports.schema = tiktok;
 exports.model = mongoose.model('tiktok', tiktok);

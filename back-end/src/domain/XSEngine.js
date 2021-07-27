@@ -35,7 +35,10 @@ module.exports = class Browser {
                         else if (elem) {
                             var tmp = {};
                             for (const [k1, v1] of Object.entries(v.func)) { tmp[k1] = await eval(v1).catch(() => { return null }) };
-                            if (!Object.values(tmp).filter(Boolean).length) this.data[k].push(tmp);
+                            const chk = Object.values(tmp).filter(Boolean);
+                            if (chk.length) {
+                                if (chk[0].length) { this.data[k].push(tmp); }
+                            }
                         }
                     }
                     this.data[k] = [...new Set(this.data[k])];

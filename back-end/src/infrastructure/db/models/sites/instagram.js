@@ -8,7 +8,8 @@ const mongoose = require('mongoose'),
         Username: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            unique: true
         },
         Name: {
             type: String,
@@ -37,7 +38,7 @@ const mongoose = require('mongoose'),
             }
         }],
         Social: [String]
-    });
+    }, { versionKey: false });
 
 exports.schema = instagram;
 exports.model = mongoose.model('instagram', instagram);

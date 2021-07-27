@@ -8,7 +8,8 @@ const mongoose = require('mongoose'),
         Username: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
+            unique: true
         },
         Name: {
             type: String,
@@ -28,7 +29,7 @@ const mongoose = require('mongoose'),
             Content: [String]
         }],
         Social: [String]
-    });
+    }, { versionKey: false });
 
 exports.schema = pinterest;
 exports.model = mongoose.model('pinterest', pinterest);
