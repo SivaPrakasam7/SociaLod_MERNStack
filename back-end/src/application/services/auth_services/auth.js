@@ -17,8 +17,8 @@ exports.login = async (data) => {
 
 // Registration
 exports.register = async (data) => {
-    const { name, email, mobileno, password, about } = data;
-    return await User.create({ Name: name, Email: email, MobileNo: mobileno, password: await bcrypt.hash(password, await bcrypt.genSalt(10)), About: about })
+    const { profile, name, email, mobileno, password, about } = data;
+    return await User.create({ Profile: profile, Name: name, Email: email, MobileNo: mobileno, password: await bcrypt.hash(password, await bcrypt.genSalt(10)), About: about })
         .then(async (info) => { return await tokener.generate({ id: info._id }, process.env.SECRET_KEY) })
         .catch((err) => { return { err: true, message: err } });
 };

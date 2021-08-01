@@ -3,6 +3,7 @@ const express = require('express'),
     errorHandler = require('./src/interfaces/middleware/responseHandler'),
     connectMDB = require('./src/infrastructure/db/connection'),
     path = require('path'),
+    cors = require('cors'),
     app = express();
 
 require('dotenv').config({ path: path.resolve(__dirname, './src/infrastructure/config/.env') });
@@ -10,6 +11,8 @@ require('dotenv').config({ path: path.resolve(__dirname, './src/infrastructure/c
 const PORT = process.env.PORT || 5000;
 
 connectMDB();
+
+app.use(cors());
 
 app.use(express.json());
 

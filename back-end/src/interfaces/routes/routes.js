@@ -9,6 +9,9 @@ const requests = require('../middleware/requestHandler'),
 
 /* Authentication services */
 
+// Token verify
+router.route('/auth/verify').get(secure.token);
+
 // Login authentication
 router.route('/auth/login').post(secure.body, requests.login);
 

@@ -1,9 +1,9 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 export default class Title extends Component {
     render() {
         return (
-            <label class={"title "+this.props.align}>{this.props.title}</label>
+            <label className={"title " + this.props.align}>{this.props.title}</label>
         );
     }
 }

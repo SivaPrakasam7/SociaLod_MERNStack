@@ -1,6 +1,10 @@
 const mongoose = require('mongoose'),
     walker = require('../../../../application/services/util_services/utils').walker,
     UserSchema = {
+        Profile:{
+            type:String,
+            required:true
+        },
         Name: {
             type: String,
             required: true
@@ -18,7 +22,6 @@ const mongoose = require('mongoose'),
             type: String,
             required: true
         },
-        Networks: {},
         About: {
             type: String,
             default: 'Nothing to show'
@@ -27,7 +30,7 @@ const mongoose = require('mongoose'),
     };
 
 for (var v of walker('../../../../src/infrastructure/db/models/sites', 'js')) {
-    UserSchema.Networks[v.categeory] = require(v.path).schema;
+    UserSchema[v.categeory] = require(v.path).schema;
 }
 
 const User = new mongoose.Schema(UserSchema, { versionKey: false });

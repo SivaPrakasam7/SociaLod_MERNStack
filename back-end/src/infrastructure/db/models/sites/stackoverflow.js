@@ -2,23 +2,19 @@ const mongoose = require('mongoose'),
     stackoverflow = new mongoose.Schema({
         Link: {
             type: String,
-            required: true,
             trim: true
         },
         Username: {
             type: String,
-            required: true,
             trim: true,
             unique: true
         },
         Name: {
             type: String,
-            required: true,
             trim: true
         },
         Profile: {
-            type: String,
-            required: true
+            type: String
         },
         Description: [String],
         Details: [String],

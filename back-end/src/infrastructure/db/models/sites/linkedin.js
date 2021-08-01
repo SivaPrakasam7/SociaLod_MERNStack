@@ -2,24 +2,20 @@ const mongoose = require('mongoose'),
     linkedin = new mongoose.Schema({
         Link: {
             type: String,
-            required: true,
             trim: true
         },
         Username: {
             type: String,
-            required: true,
             trim: true,
             unique: true
         },
-        Name: {
+        Name: [{
             type: String,
-            required: true,
             trim: true
-        },
-        Profile: {
-            type: String,
-            required: true
-        },
+        }],
+        Profile: [{
+            type: String
+        }],
         Intro: [String],
         Activity: [{
             _id: false,

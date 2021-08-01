@@ -2,12 +2,10 @@ const mongoose = require('mongoose'),
     github = new mongoose.Schema({
         Link: {
             type: String,
-            required: true,
             trim: true
         },
         Username: {
             type: String,
-            required: true,
             trim: true,
             unique: true
         },

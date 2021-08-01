@@ -1,14 +1,20 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import Title from '../components/views/title';
 import Para from '../components/views/paragraph';
 import Profile from '../components/views/profile';
+import Search from "../components/intract/search";
+import Scrap from "../functions/usecases/services/scrap";
+import CKIE from "../functions/usecases/auth/ckcheck";
 
 export default class Main extends Component {
     render() {
         return (
-            <div class="center Glass-plate main">
+            <div className="center Glass-plate main">
+                <div className="fix-width">
+                    {!CKIE() && <Search id="scrap" cont="Social Link for scrap" click={Scrap} />}
+                </div>
                 <Title title="SociaLod" align="bold h1" />
-                <Para cont=" &emsp;&emsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat illo obcaecati, maxime eum quae quaerat soluta officia nisi eveniet mollitia voluptas aliquam saepe architecto temporibus, sit harum enim ipsa. Dicta cum sequi alias sapiente delectus ad, voluptates, temporibus nesciunt debitis autem corrupti provident accusantium soluta consequatur facilis voluptatum officiis quae corporis. Esse iusto cupiditate labore rem possimus illum qui eligendi, porro amet corporis saepe placeat voluptas atque, facilis iste magni vel, consequatur optio assumenda rerum praesentium. Eos libero molestiae distinctio maiores nesciunt corrupti harum saepe reiciendis sapiente dolores, sed assumenda atque sit magnam? In rem beatae quaerat pariatur, vero vitae." />
+                <Para cont="&emsp;&emsp;It's based on human information from diffrent social medias. Search by user name with different social media publicly available information. That make a Human information resources with recursive search." />
                 <Profile src={process.env.PUBLIC_URL + "/img/networking-teachers.jpg"} align="left-bottom" />
             </div>
         );

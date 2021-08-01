@@ -4,11 +4,9 @@ const User = require('../../../infrastructure/db/models/user/user'),
 // Add new social media
 exports.newMedia = async (id, data) => {
     const { site, username } = data;
-    const networks = {};
     const info = await scraper.scrap(username, site);
     if (!info.err) {
-        networks[site] = info.message;
-        return await User.findOneAndUpdate({ _id: id }, { $set: { Networks: networks } }, { new: true, select: "-password -Views" })
+        return await User.findOneAndUpdate({ _id: id }, { $set: { [site]: info.message[0] } }, { new: true, select: "-password -Views" })
             .then((info) => { return { err: false, message: info } })
             .catch((err) => { return { err: true, message: err } });
     } else return info;
@@ -17,9 +15,7 @@ exports.newMedia = async (id, data) => {
 // Delete new social media
 exports.removeMedia = async (id, data) => {
     const { site } = data;
-    const networks = {};
-    networks[site] = null;
-    return await User.findOneAndUpdate({ _id: id }, { $set: { Networks: networks } }, { new: true, select: "-password -Views" })
+    return await User.findOneAndUpdate({ _id: id }, { $set: { [site]: null } }, { new: true, select: "-password -Views" })
         .then((info) => { return { err: false, message: info } })
         .catch((err) => { return { err: true, message: err } });
 };
@@ -42,7 +38,7 @@ exports.notification = async (id) => {
 // Search by username
 exports.search = async (data) => {
     const { username } = data;
-    return await User.find({ Name: new RegExp(username, 'i') }, "Name Profile Email About")
+    return await User.find({ Name: new RegExp(username, 'i') }, "-password -Views")
         .then((info) => { return { err: false, message: info } })
         .catch((err) => { return { err: true, message: err } });
 }
