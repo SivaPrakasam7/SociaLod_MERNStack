@@ -28,7 +28,7 @@ export default class Account extends Component {
             return (
                 <div className="mcenter searchmain">
                     {this.state.data && <div className="Glass-plate searchplate">
-                        <Link align="left fsize" click={Viewpanel} title="View" />
+                        <Link align="left fsize" click={()=>{Viewpanel(this.state.data)}} title="View" />
                         <Profile src={this.state.data.Profile} />
                         <Title align="h2" title={this.state.data.Name} />
                         <Paragraph cont={this.state.data.About} />

@@ -16,6 +16,7 @@ export default async function Scrap() {
     console.log(info.message);
     if (!info.err) {
         Clear();
+        info.message.Title=scrap[0];
         Viewpanel(info.message);
     } else {
         if (info.message.includes('Token not match')) {

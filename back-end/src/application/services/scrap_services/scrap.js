@@ -4,10 +4,10 @@ const Browser = require('../../../domain/XSEngine'),
 // Scrap services
 exports.scrap = async (username, site) => {
     const Site = require(`../../../infrastructure/db/models/sites/${site}`).model;
-    const ainfo = await Site.find({ Username: username })
+    const ainfo = await Site.findOne({ Username: username })
         .then((info) => { return { err: false, message: info } })
         .catch((err) => { return { err: true, message: err } });
-    if (ainfo.message.join() === "") {
+    if (ainfo.message === "") {
         const info = await (new Browser(username, require(`../../../entities/${site}`))).scrap().catch((err) => { return { err: true, message: err } });
         if (info.err) return info;
         return await Site.create(info)

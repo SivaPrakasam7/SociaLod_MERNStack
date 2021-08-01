@@ -8,10 +8,9 @@ import Paragraph from "../../../components/views/paragraph";
 import Viewpanel from "../actions/view";
 
 export default function Viewplate(info) {
-    console.log(info);
     document.getElementById('viewplate').style.display = "block";
     var template = (<div className="Glass-plate searchplate">
-        <Link align="left fsize" click={Viewpanel} title="View" />
+        <Link align="left fsize" click={() => { Viewpanel(info) }} title="View" />
         <Profile src={info.Profile} />
         <Title align="h2" title={info.Name} />
         <Paragraph cont={info.About} />

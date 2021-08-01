@@ -13,7 +13,6 @@ export default async function Buildsearch() {
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });
-    console.log(info.message);
     var template = [];
     if (!info.err) {
         for (var u of Object.values(info.message)) {

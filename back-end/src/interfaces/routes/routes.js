@@ -25,7 +25,7 @@ router.route('/auth/logout').get(secure.token, requests.logout);
 router.route('/auth/forget').post(secure.body, requests.forget);
 
 // Reset password
-router.route('/auth/reset/:resetPass').post(secure.tokenDestroy, requests.resetpass);
+router.route('/auth/reset').post(secure.tokenDestroy, requests.resetpass);
 
 /* User services */
 

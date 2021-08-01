@@ -2,6 +2,7 @@ import { render } from "react-dom";
 import React from "react";
 import Error from "../../../components/status/error";
 import Clear from "../actions/sclear";
+import Success from "../../../components/status/success";
 
 export default async function Registersubmit() {
     const form = document.getElementById('register');
@@ -11,6 +12,8 @@ export default async function Registersubmit() {
             .then(data => { return data })
             .catch(err => { return err });
         if (!info.err) {
+            render(<Success cont="Registration successful" click={Clear} />, document.getElementById("status"));
+            setTimeout(Clear, 3000);
             document.cookie = `CID=${info.message.token}; path=/`;
             window.location = "/";
         } else {

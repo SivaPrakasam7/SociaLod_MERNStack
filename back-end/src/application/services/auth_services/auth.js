@@ -33,9 +33,9 @@ exports.forget = async (email) => {
     const mail = {},
         data = await User.findOne({ Email: email }, 'Email');
     if (data) {
-        reset = Buffer.from((await tokener.generate({ id: data._id, email: data.Email }, process.env.SECRET_KEY)).message.token).toString('base64');
-        mail.subject = "Password reset";
-        mail.template = `Create new password from the below link <a href="${process.env.URL}/api/auth/reset/${reset}">Reset</a>`;
+        reset = (await tokener.generate({ id: data._id, email: data.Email }, process.env.SECRET_KEY)).message.token;
+        mail.subject = "SociaLod password reset";
+        mail.template = `Create new password from the below link <a href="${process.env.FURL}/forget/${reset}">Reset</a>`;
         mail.email = data.Email;
         return await mailer(mail);
     } else {
@@ -45,7 +45,7 @@ exports.forget = async (email) => {
 
 // Reset password
 exports.reset = async (payload, password) => {
-    return await User.findOneAndUpdate({ _id: payload.id, Email: payload.Email }, { $set: { password: await bcrypt.hash(password, await bcrypt.genSalt(10)) } })
+    return await User.findOneAndUpdate({ _id: payload.id, Email: payload.email }, { $set: { password: await bcrypt.hash(password, await bcrypt.genSalt(10)) } })
         .then(() => { return { err: false, message: "Password reset successful" } })
         .catch((err) => { return { err: true, message: err } });
 };

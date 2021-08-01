@@ -54,7 +54,7 @@ exports.tokenDestroy = async (req, res, next) => {
         const uid = await tokener.verify(req.headers.authorization.split(' ')[1], process.env.SECRET_KEY);
         const info = await tokener.destroy(token, uid);
         if (!info.err) {
-            req.status = { uid: info };
+            req.status = { uid: uid };
             next();
         } else next(info);
     }

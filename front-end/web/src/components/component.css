@@ -195,6 +195,15 @@ nav .a:hover,.active{
   text-align: justify;
 }
 
+.success{
+  background-color: var(--success);
+  color: var(--text);
+  font-weight: bold;
+  z-index: 100;
+  min-width: 100%;
+  text-align: justify;
+}
+
 .process{
   background-color: var(--process);
   color: var(--text);

@@ -6,7 +6,7 @@ exports.newMedia = async (id, data) => {
     const { site, username } = data;
     const info = await scraper.scrap(username, site);
     if (!info.err) {
-        return await User.findOneAndUpdate({ _id: id }, { $set: { [site]: info.message[0] } }, { new: true, select: "-password -Views" })
+        return await User.findOneAndUpdate({ _id: id }, { $set: { [site]: info.message } }, { new: true, select: "-password -Views" })
             .then((info) => { return { err: false, message: info } })
             .catch((err) => { return { err: true, message: err } });
     } else return info;

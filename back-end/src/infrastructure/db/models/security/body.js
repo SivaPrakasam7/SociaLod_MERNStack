@@ -43,9 +43,9 @@ Body = new mongoose.Schema({
         trim: true,
         validate: {
             validator: function (v) {
-                return /[a-zA-Z0-9`~!@#$%^&*()_+-={}|\[\]\\:";'<>?,./]{8,}+/g.test(v);
+                return /[a-zA-Z0-9`~!@#$%^&*()_+-={}|\[\]\\:";'<>?,./]+/g.test(v);
             },
-            message: '{VALUE} is not valid password'
+            message: 'not valid password'
         }
     },
     mobileno: {

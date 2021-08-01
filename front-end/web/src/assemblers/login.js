@@ -4,6 +4,7 @@ import Title from '../components/views/title';
 import Icon from '../components/intract/icon';
 import Link from '../components/views/link';
 import Loginsubmit from '../functions/usecases/auth/login';
+import Resetreq from "../functions/usecases/auth/reqreset";
 
 export default class Login extends Component {
     render() {
@@ -16,7 +17,7 @@ export default class Login extends Component {
                     <Textfield name="password" type="password" icon="https://img.icons8.com/ios-filled/50/ffffff/key-security.png" cont="password" />
                 </div>
                 <Icon src='https://img.icons8.com/ios-filled/50/ffffff/circled-chevron-right.png' click={Loginsubmit} />
-                <Link align="right-bottom fsize" link="/forget" title="Forget password" />
+                <Link align="right-bottom fsize" click={Resetreq} title="Forget password" />
             </form>
         );
     }
