@@ -13,13 +13,12 @@ export default async function Scrap() {
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });
-    console.log(info.message);
-    if (!info.err) {
+    if (!info.err && !info === "TypeError: Failed to fetch") {
         Clear();
-        info.message.Title=scrap[0];
+        info.message.Title = scrap[0];
         Viewpanel(info.message);
     } else {
-        if (info.message.includes('Token not match')) {
+        if ((info.message.includes('Token not match')) || (info.message === "Failed to fetch")) {
             Logout();
         }
         render(<Error cont={JSON.stringify(info.message)} click={Clear} />, document.getElementById("status"));

@@ -11,7 +11,6 @@ export default async function Add() {
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });
-    console.log(info);
     if (!info.err) {
         Clear();
         return info.message;

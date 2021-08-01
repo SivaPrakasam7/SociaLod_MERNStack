@@ -13,7 +13,7 @@ export default async function Resetreq() {
         .then(data => { return data })
         .catch(err => { return err });
     Clear();
-    if (!info.err) {
+    if (!info.err && !info === "TypeError: Failed to fetch") {
         render(<Success cont={"Password reset requested. please check your mail " + form.email.value} click={Clear} />, document.getElementById("status"));
         setTimeout(Clear, 3000);
 

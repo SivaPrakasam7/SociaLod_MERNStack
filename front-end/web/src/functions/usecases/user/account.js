@@ -9,10 +9,10 @@ export default async function Myaccount() {
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });
-    if (!info.err) {
+    if (!info.err && !info === "TypeError: Failed to fetch") {
         return info.message;
     } else {
-        if (info.message.includes('Token not match')) {
+        if ((info.message.includes('Token not match')) || (info.message === "Failed to fetch")) {
             Logout();
         }
         render(<Error cont={JSON.stringify(info.message)} click={Clear} />, document.getElementById("status"));

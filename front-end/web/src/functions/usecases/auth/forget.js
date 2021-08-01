@@ -13,7 +13,7 @@ export default async function Forgetsubmit(token) {
             .then(res => { return res.json() })
             .then(data => { return data })
             .catch(err => { return err });
-        if (!info.err) {
+        if (!info.err && !info === "TypeError: Failed to fetch") {
             render(<Success cont="Password reset successful" click={Clear} />, document.getElementById("status"));
             setTimeout(Clear, 3000);
             window.location = "/signin";

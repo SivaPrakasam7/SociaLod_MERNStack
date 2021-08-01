@@ -61,7 +61,7 @@ export default class View extends Component {
                     {!this.props.data.Username && <Profile src={this.props.data.Profile} />}
                     {!this.props.data.Username && <Title align="h2" title={this.props.data.Name} />}
                     {!this.props.data.Username && <Paragraph align="margin" cont={this.props.data.About} />}
-                    {!this.props.data.Username && this.build() || this.scraped()}
+                    {(!this.props.data.Username && this.build()) || this.scraped()}
                 </div>
             );
         }

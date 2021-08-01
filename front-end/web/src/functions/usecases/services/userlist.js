@@ -14,14 +14,14 @@ export default async function Buildsearch() {
         .then(data => { return data })
         .catch(err => { return err });
     var template = [];
-    if (!info.err) {
+    if (!info.err && !info === "TypeError: Failed to fetch") {
         for (var u of Object.values(info.message)) {
-            template.push(<ListUser click={()=>{Viewplate(u)}} img={u.Profile} time="" name={u.Name} mail={u.Email} about={u.About} />);
+            template.push(<ListUser click={() => { Viewplate(u) }} img={u.Profile} time="" name={u.Name} mail={u.Email} about={u.About} />);
         }
         Clear();
         render(template, document.getElementById('listview'));
     } else {
-        if (info.message.includes('Token not match')) {
+        if ((info.message.includes('Token not match')) || (info.message === "Failed to fetch")) {
             Logout();
         }
         render(<Error cont={JSON.stringify(info.message)} click={Clear} />, document.getElementById("status"));
