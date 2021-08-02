@@ -1,4 +1,4 @@
-# SociaLod MEAN stack development
+# SociaLod MERN stack development
 
 Decription
 ---
@@ -8,6 +8,6 @@ MERN stack used and Clean architectured followed in this developement.
 Info
 ---
     Database : MongoDB 
-    Backend : Node.js (Clean architecture)
+    Backend : Express, Node.js (Clean architecture)
     Frontend : React (Clean architecture)
-    Additional Mobile : Flutter
+    Additional Mobile : Flutter (Pending)
