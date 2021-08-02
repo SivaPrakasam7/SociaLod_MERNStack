@@ -1,5 +1,5 @@
 export default function Secure(e) {
-    if (/[<>:;/]/g.test(e.nativeEvent.key)) {
+    if (/[<>:;]/g.test(e.nativeEvent.key)) {
         e.preventDefault();
     }
-}
+} // paste solution required
