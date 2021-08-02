@@ -26,7 +26,6 @@ export default class View extends Component {
         delete data.About;
         var template = [];
         for (var [k, v] of Object.entries(data)) {
-            console.log(v);
             v && template.push(<div className="Glass-plate flex-center">
                 <Title title={k} align="bold h1" />
                 <Profile src={v.Profile} />

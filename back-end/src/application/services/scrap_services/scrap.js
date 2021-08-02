@@ -22,7 +22,6 @@ exports.check = async (username) => {
     for (var v of walker('../../../entities', 'js')) {
         await ((new Browser(username, require(v.path))).scrap())
             .then(info => {
-                console.log(v.categeory, require(`../../../infrastructure/db/models/sites/${v.categeory}`).model(info));
                 results[v.categeory] = { err: true, message: require(`../../../infrastructure/db/models/sites/${v.categeory}`).model(info) };
             })
             .catch(err => { results[v.categeory] = { err: true, message: err } });
