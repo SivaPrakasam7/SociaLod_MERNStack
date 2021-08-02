@@ -18,7 +18,7 @@ SignIn
 SignUp
 <img src="screenshots/SignUp.png"/>
 Search By Link
-<img src="screenshots/SearchByLink.png"/>
+<img src="screenshots/ScrapByLink.png"/>
 Scraping Result
 <img src="screenshots/ScrapResult.png"/>
 Search By Username
