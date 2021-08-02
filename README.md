@@ -6,7 +6,7 @@ Search by user name with set social media publicly available information. That m
 
 Info
 ---
-Backend : nodejs
-Frontend,
-     Web : react
-     Mobile : flutter
+    Backend : nodejs
+    Frontend,
+        Web : react
+        Mobile : flutter
