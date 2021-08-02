@@ -15,7 +15,7 @@ import Add from "./add";
 import Remove from "./remove";
 
 export default async function Myaccount() {
-    const info = await fetch('http://192.168.43.175:5000/api/user/get', { method: "GET", headers: { 'Authorization': `Bearer ${document.cookie.replace("CID=", "")}`, 'Content-Type': 'application/json' } })
+    const info = await fetch(`${window.env.BURL}/api/user/get`, { method: "GET", headers: { 'Authorization': `Bearer ${document.cookie.replace("CID=", "")}`, 'Content-Type': 'application/json' } })
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });

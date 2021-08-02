@@ -7,7 +7,7 @@ import Success from "../../../components/status/success";
 export default async function Registersubmit() {
     const form = document.getElementById('register');
     if (form.password.value === form.cpassword.value) {
-        const info = await fetch('http://192.168.43.175:5000/api/auth/register', { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ profile: document.getElementById("profile").src, name: form.name.value, email: form.email.value, mobileno: form.mobile.value, about: form.about.value, password: form.password.value }) })
+        const info = await fetch(`${window.env.BURL}/api/auth/register`, { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ profile: document.getElementById("profile").src, name: form.name.value, email: form.email.value, mobileno: form.mobile.value, about: form.about.value, password: form.password.value }) })
             .then(res => { return res.json() })
             .then(data => { return data })
             .catch(err => { return err });

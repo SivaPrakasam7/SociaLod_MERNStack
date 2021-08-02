@@ -8,7 +8,7 @@ import Process from "../../../components/status/proccess";
 export default async function Resetreq() {
     const form = document.getElementById('login');
     render(<Process />, document.getElementById("status"))
-    const info = await fetch('http://192.168.43.175:5000/api/auth/forget', { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: form.email.value }) })
+    const info = await fetch(`${window.env.BURL}/api/auth/forget`, { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: form.email.value }) })
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });

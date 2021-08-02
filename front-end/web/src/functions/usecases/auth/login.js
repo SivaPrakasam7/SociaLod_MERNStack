@@ -6,7 +6,7 @@ import Success from "../../../components/status/success";
 
 export default async function Loginsubmit() {
     const form = document.getElementById('login');
-    const info = await fetch('http://192.168.43.175:5000/api/auth/login', { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: form.email.value, password: form.password.value }) })
+    const info = await fetch(`${window.env.BURL}/api/auth/login`, { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: form.email.value, password: form.password.value }) })
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });
