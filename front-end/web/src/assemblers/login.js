@@ -10,7 +10,7 @@ export default class Login extends Component {
     render() {
         return (
             <form className="center Glass-plate login" id="login">
-                <Link align="right-top fsize" link="/signup" title="Sign Up" />
+                <Link align="right-top fsize" link="/#/signup" title="Sign Up" />
                 <Title title="Sign In" />
                 <div className="padding">
                     <Textfield name="email" type="text" icon="https://img.icons8.com/ios-filled/50/ffffff/mail.png" cont="email" />

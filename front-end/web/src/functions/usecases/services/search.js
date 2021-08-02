@@ -12,7 +12,7 @@ export default async function Buildsearch() {
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });
-    if (!info.err && !info === "TypeError: Failed to fetch") {
+    if (!info.err && info.message !== "Failed to fetch") {
         Clear();
         Viewpanel(info.message);
     } else {

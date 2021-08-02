@@ -11,7 +11,7 @@ export default async function Registersubmit() {
             .then(res => { return res.json() })
             .then(data => { return data })
             .catch(err => { return err });
-        if (!info.err && !info === "TypeError: Failed to fetch") {
+        if (!info.err && info.message !== "Failed to fetch") {
             render(<Success cont="Registration successful" click={Clear} />, document.getElementById("status"));
             setTimeout(Clear, 3000);
             document.cookie = `CID=${info.message.token}; path=/`;

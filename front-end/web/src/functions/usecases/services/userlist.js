@@ -14,7 +14,7 @@ export default async function Buildsearch() {
         .then(data => { return data })
         .catch(err => { return err });
     var template = [];
-    if (!info.err && !info === "TypeError: Failed to fetch") {
+    if (!info.err && info.message !== "Failed to fetch") {
         for (var u of Object.values(info.message)) {
             template.push(<ListUser click={() => { Viewplate(u) }} img={u.Profile} time="" name={u.Name} mail={u.Email} about={u.About} />);
         }

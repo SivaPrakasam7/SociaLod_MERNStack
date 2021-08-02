@@ -17,7 +17,7 @@ export default class View extends Component {
         return (<table className="table"><tbody><tr><th colSpan="2">Info</th></tr>{row}</tbody></table>);
     }
     build() {
-        var data = this.props.data;
+        var data = JSON.parse(JSON.stringify(this.props.data));
         delete data._id;
         delete data.Name;
         delete data.Email;
@@ -38,16 +38,19 @@ export default class View extends Component {
 
     }
     scraped() {
-        var data=this.props.data;
-        delete data._id
+        var data = JSON.parse(JSON.stringify(this.props.data));
+        delete data._id;
+        delete data.Title;
+        delete data.Username;
+        delete data.Profile;
         var row = [];
         for (var [k, v] of Object.entries(data)) {
             v && row.push(<tr><td>{k}</td><td>{JSON.stringify(v)}</td></tr>);
         }
         return (<div className="Glass-plate flex-center">
-            <Title title={data.Title} align="bold h1" />
-            <Profile src={data.Profile} />
-            <Title align="h2" title={data.Username} />
+            <Title title={this.props.data.Title} align="bold h1" />
+            <Profile src={this.props.data.Profile} />
+            <Title align="h2" title={this.props.data.Username} />
             <table className="table"><tbody><tr><th colSpan="2">Info</th></tr>{row}</tbody></table>
         </div>);
     }
@@ -61,7 +64,7 @@ export default class View extends Component {
                     {!this.props.data.Username && <Profile src={this.props.data.Profile} />}
                     {!this.props.data.Username && <Title align="h2" title={this.props.data.Name} />}
                     {!this.props.data.Username && <Paragraph align="margin" cont={this.props.data.About} />}
-                    {(!this.props.data.Username && this.build()) || this.scraped()}
+                    {(!this.props.data.Username && this.build(this.props.data)) || this.scraped(this.props.data)}
                 </div>
             );
         }

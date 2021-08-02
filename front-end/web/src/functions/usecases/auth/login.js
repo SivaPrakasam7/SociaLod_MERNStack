@@ -10,7 +10,8 @@ export default async function Loginsubmit() {
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });
-    if (!info.err && !info==="TypeError: Failed to fetch") {
+        console.log(info)
+    if (!info.err && info.message !== "Failed to fetch") {
         render(<Success cont="Login successful" click={Clear} />, document.getElementById("status"));
         setTimeout(Clear, 3000);
         document.cookie = `CID=${info.message.token}; path=/`;

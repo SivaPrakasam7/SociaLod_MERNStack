@@ -5,21 +5,24 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
-    "cros": "^1.0.1",
     "crypto-js": "^4.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.2",
     "natural": "^5.0.3",
     "nodemailer": "^6.6.3",
-    "nodemon": "^2.0.9",
-    "selenium-webdriver": "^4.0.0-beta.4",
-    "universal-cookie": "^4.0.4"
+    "selenium-webdriver": "^4.0.0-beta.4"
   },
   "scripts": {
+    "start": "node index.js",
     "test": "echo 'Error no test module'&& exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "SociaLod",
+    "Scraping",
+    "User-info",
+    "Social media"
+  ],
+  "author": "sivaprakasam",
   "license": "ISC"
 }

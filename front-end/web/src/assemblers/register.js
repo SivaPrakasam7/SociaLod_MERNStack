@@ -12,7 +12,7 @@ export default class Register extends Component {
     render() {
         return (
             <form className="center Glass-plate login" id="register">
-                <Link align="right-top fsize" link="/signin" title="Sign In" />
+                <Link align="right-top fsize" link="/#/signin" title="Sign In" />
                 <Title title="Sign Up" align="margin" />
                 <div className="padding">
                     <input type="file" id="browse" hidden={true} onChange={Selectprofile}/>
