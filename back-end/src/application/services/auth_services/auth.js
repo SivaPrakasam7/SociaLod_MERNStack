@@ -35,7 +35,7 @@ exports.forget = async (email) => {
     if (data) {
         reset = (await tokener.generate({ id: data._id, email: data.Email }, process.env.SECRET_KEY)).message.token;
         mail.subject = "SociaLod password reset";
-        mail.template = `Create new password from the below link <a href="${process.env.FURL}/forget/${reset}">Reset</a>`;
+        mail.template = `Create new password from the below link <a href="${process.env.FURL}/#/forget/${reset}">Reset</a>`;
         mail.email = data.Email;
         return await mailer(mail);
     } else {

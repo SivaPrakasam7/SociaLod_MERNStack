@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Panel extends StatelessWidget {
-  Panel({Key? key, required this.cont}) : super(key: key);
+  Panel({required this.cont}) : super();
   final String cont;
+
   @override
   Widget build(BuildContext context) {
     return Container(

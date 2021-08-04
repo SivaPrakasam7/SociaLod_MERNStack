@@ -16,7 +16,7 @@ export default async function Forgetsubmit(token) {
         if (!info.err && info.message !== "Failed to fetch") {
             render(<Success cont="Password reset successful" click={Clear} />, document.getElementById("status"));
             setTimeout(Clear, 3000);
-            window.location = "/signin";
+            window.location = "#/signin";
         } else {
             render(<Error cont={JSON.stringify(info.message)} click={Clear} />, document.getElementById("status"));
             setTimeout(Clear, 3000);
