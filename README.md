@@ -14,7 +14,7 @@ Info
 
 Deployment
 ---
-    Backend : https://socialod-backend.herokuapp.com
-    Frontend : https://socialod.herokuapp.com
+Backend : <a href="https://socialod-backend.herokuapp.com">https://socialod-backend.herokuapp.com</a>
+Frontend : <a href="https://socialod.herokuapp.com">https://socialod.herokuapp.com</a>
 
-<b style='color:red'>Note : Selenium doesnot work in this deployment but local system it's perfectly works</b>
+<b color="red">Note : Selenium doesnot work in this deployment but local system it's perfectly works</b>
