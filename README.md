@@ -17,4 +17,4 @@ Deployment
     Backend : https://socialod-backend.herokuapp.com
     Frontend : https://socialod.herokuapp.com
 
-- ![#f03c15](Note : Selenium doesnot work in this deployment but local system it's perfectly works)
+<b style='color:red'>Note : Selenium doesnot work in this deployment but local system it's perfectly works</b>
