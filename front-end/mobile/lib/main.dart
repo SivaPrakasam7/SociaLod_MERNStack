@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'components/backgrounds/panel.dart';
-import 'components/inputs/textfield.dart';
+import 'assemblers/home.dart';
+import 'assemblers/register.dart';
+import 'assemblers/navigation.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,27 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
-        child: Column(
-          children: [
-            Textfield(
-              placeholder: "Your valid Email",
-              icon: Icons.email_outlined,
-              label: "Email",
-              type: false,
-            ),
-            Textfield(
-              placeholder: "Password",
-              icon: Icons.password_outlined,
-              label: "Password",
-              type: true,
-            ),
-          ],
-        ),
+        child: Home(),
       ),
+      bottomNavigationBar: NavigationBar(),
     );
   }
 }

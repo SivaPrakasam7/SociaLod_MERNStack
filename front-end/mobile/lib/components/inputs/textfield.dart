@@ -5,10 +5,8 @@ class Textfield extends StatelessWidget {
   Textfield(
       {required this.icon,
       required this.placeholder,
-      required this.label,
       required this.type})
       : super();
-  final String label;
   final String placeholder;
   final IconData icon;
   final bool type;
@@ -19,8 +17,8 @@ class Textfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 250,
-      height: 50,
-      margin: EdgeInsets.all(5.0),
+      height: 40,
+      margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
