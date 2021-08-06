@@ -6,8 +6,7 @@ const mongoose = require('mongoose'),
         },
         Username: {
             type: String,
-            trim: true,
-            unique: true
+            trim: true
         },
         Name: [[{
             type: String,
