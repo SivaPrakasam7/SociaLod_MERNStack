@@ -55,7 +55,7 @@ export default class View extends Component {
     }
     render() {
         if (CKIE()) {
-            window.location = "/signup";
+            window.location = "/#/signup";
         } else {
             return (
                 <div className="view scrollview">
