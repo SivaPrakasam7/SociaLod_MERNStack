@@ -12,7 +12,7 @@ exports.scrap = async (query, site) => {
         if (info.err) return info;
         return await Site.create(info)
             .then((info) => { return { err: false, message: info } })
-            .catch((err) => { return { err: true, message: err } });
+            .catch((err) => { return { err: true, message: "Out of service" } });
     } else return ainfo;
 };
 
@@ -24,7 +24,7 @@ exports.check = async (query) => {
             .then(info => {
                 results[v.categeory] = { err: true, message: require(`../../../infrastructure/db/models/sites/${v.categeory}`).model(info) };
             })
-            .catch(err => { results[v.categeory] = { err: true, message: err } });
+            .catch(err => { results[v.categeory] = { err: true, message: "Out of service" } });
     }
     return results;
 };
