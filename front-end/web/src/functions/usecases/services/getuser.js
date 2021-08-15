@@ -6,7 +6,6 @@ import Logout from "../actions/logout";
 import Viewplate from "../actions/viewplate";
 
 export default async function GetUser(id) {
-    console.log(id);
     const info = await fetch(`${window.env.BURL}/api/service/view_user`, { method: "POST", headers: { 'Authorization': `Bearer ${document.cookie.replace("CID=", "")}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ userid: id }) })
         .then(res => { return res.json() })
         .then(data => { return data })
