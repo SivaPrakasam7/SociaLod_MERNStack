@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.pinterest.com/${this.username}`",
+    Main: "`https://www.pinterest.com/${this.query}`",
     Profile: {
         xpath: "//img[contains(@class,'hCL kVc L4E MIw')]",
         func: "elem.getAttribute('src')"

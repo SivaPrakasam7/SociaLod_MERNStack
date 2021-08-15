@@ -1,6 +1,6 @@
 module.exports = {
-    Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless', 'proxy-server=socks5://localhost:9050'],
-    Main: "`https://www.twitter.com/${this.username}`",
+    Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
+    Main: "`https://www.twitter.com/${this.query}`",
     Profile: {
         xpath: "//img[contains(@src,'https://pbs.twimg.com/profile_images/')]",
         func: "elem.getAttribute('src')"

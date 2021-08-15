@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.stackoverflow.com/users/${this.username}`",
+    Main: "`https://www.stackoverflow.com/users/${this.query}`",
     Profile: {
         xpath: "//img[contains(@src,'avatar')]",
         func: "elem.getAttribute('src')"

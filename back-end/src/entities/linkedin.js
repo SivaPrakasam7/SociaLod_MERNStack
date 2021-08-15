@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.linkedin.com/in/${this.username}`",
+    Main: "`https://www.linkedin.com/in/${this.query}`",
     Login: [`document.cookie="li_at=${process.env.LN_LI_AT}}"`],
     Profile: {
         Script: 'return window.scrollTo(0, 1000)',

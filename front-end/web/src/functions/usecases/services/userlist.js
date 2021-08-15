@@ -4,7 +4,6 @@ import Error from "../../../components/status/error";
 import Clear from "../actions/sclear";
 import Process from "../../../components/status/proccess";
 import ListUser from "../../../components/views/luser";
-import Viewplate from "../../../functions/usecases/actions/viewplate";
 import Logout from "../actions/logout";
 
 export default async function Buildsearch() {
@@ -16,7 +15,7 @@ export default async function Buildsearch() {
     var template = [];
     if (!info.err && info.message !== "Failed to fetch") {
         for (var u of Object.values(info.message)) {
-            template.push(<ListUser click={() => { Viewplate(u) }} img={u.Profile} time="" name={u.Name} mail={u.Email} about={u.About} />);
+            template.push(<ListUser key={u._id} id={u._id} img={u.Profile} time="" name={u.Name} mail={u.Email} about={u.About} />);
         }
         Clear();
         render(template, document.getElementById('listview'));

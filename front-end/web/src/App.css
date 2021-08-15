@@ -20,10 +20,6 @@
 
 body{
   margin: 0rem;
-  /* background-image:url('../public/img/1091.jpg');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size:cover; */
   background: var(--bgcolor);
   transition: none;
 }
@@ -31,6 +27,11 @@ body{
 /* Glass panel */
 
 .Glass-plate{
+  background-image: url('./img/wallpaperflare.com_wallpaper.jpg') !important;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background: linear-gradient(to top left,var(--glass3) 20%,var(--glass2) 80%,var(--glass1) 90%);
   box-shadow: 1px 1px 5px 0px var(--bgcolor),0px 0px 0px 1px var(--border);
   padding: 1rem;
@@ -110,6 +111,10 @@ body{
   font-size: 110%;
 }
 
+.red{
+  color:var(--error) !important;
+}
+
 .bold{
   font-weight: bolder !important;
 }
@@ -121,10 +126,13 @@ body{
 .text-left{
   text-align: left;
 }
-
-.left{
-  margin-left: 90%;
+.width{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
+
+
 
 .bottom{
   margin-top: auto;

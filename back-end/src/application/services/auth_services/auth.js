@@ -7,12 +7,12 @@ const bcrypt = require('bcrypt'),
 exports.login = async (data) => {
     const { email, password } = data;
     const info = await User.findOne({ Email: email }, 'password');
-    return await bcrypt.compare(password, info.password)
+    return info && await bcrypt.compare(password, info.password)
         .then(async (ok) => {
             if (ok) return await tokener.generate({ id: info._id }, process.env.SECRET_KEY);
             else return await { err: true, message: "Incorrect password" }
         })
-        .catch(err => { return { err: true, message: err } });
+        .catch(err => { return { err: true, message: err } }) || {err:true,message:"User not found"};
 };
 
 // Registration

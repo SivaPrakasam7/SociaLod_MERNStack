@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.instagram.com/${this.username}`",
+    Main: "`https://www.instagram.com/${this.query}`",
     Login: [`document.cookie="sessionid=${process.env.INSTA_ID}"`],
     Profile: {
         xpath: "//img[contains(@alt,'Profile') or contains(@alt,'profile')]",

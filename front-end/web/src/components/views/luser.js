@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import GetUser from "../../functions/usecases/services/getuser";
 import Profile from "./profile";
 
 export default class ListUser extends Component {
     render() {
         return (
-            <table className="luser" onClick={this.props.click}>
+            <table className="luser" onClick={()=>{GetUser(this.props.id)}}>
                 <tbody>
                     <tr>
                         <td><Profile src={this.props.img} /></td>

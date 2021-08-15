@@ -13,6 +13,7 @@ import Viewpanel from "../actions/view";
 import Paragraph from "../../../components/views/paragraph";
 import Add from "./add";
 import Remove from "./remove";
+import DeleteAccount from "./delete";
 
 export default async function Myaccount() {
     const info = await fetch(`${window.env.BURL}/api/user/get`, { method: "GET", headers: { 'Authorization': `Bearer ${document.cookie.replace("CID=", "")}`, 'Content-Type': 'application/json' } })
@@ -22,14 +23,17 @@ export default async function Myaccount() {
     if (!info.err && (info.message !== "Failed to fetch")) {
         var data = info.message;
         var template = (<div>{data && <div className="Glass-plate searchplate">
-            <Link align="left fsize" click={() => { Viewpanel(data) }} title="View" />
+            <div className="width">
+                <Link align="right fsize" click={() => { }} title="Edit" />
+                <Link align="left fsize" click={() => { Viewpanel(data) }} title="View" />
+            </div>
             <Profile src={data.Profile} />
             <Title align="h2" title={data.Name} />
             <Paragraph cont={data.About} />
             <Textfield type="text" id="media" icon="https://img.icons8.com/ios-filled/50/ffffff/business-network.png" cont="add social links" />
             <div>
-                <Icon align="margin" src='https://img.icons8.com/ios-glyphs/30/ffffff/add--v1.png' click={Add} />
-                <Icon align="margin" src='https://img.icons8.com/ios-glyphs/30/ffffff/minus.png' click={Remove} />
+                <Icon title="Add new media" align="margin" src='https://img.icons8.com/ios-glyphs/30/ffffff/add--v1.png' click={Add} />
+                <Icon title="Remove media" align="margin" src='https://img.icons8.com/ios-glyphs/30/ffffff/minus.png' click={Remove} />
             </div>
             <div className="padding bottom" id="Sociallinks">
                 <Licon align="margin" src="https://img.icons8.com/material-sharp/24/ffffff/mail.png" link={"mailto:" + data.Email} />
@@ -47,10 +51,13 @@ export default async function Myaccount() {
                 {data.twitter && <Licon align="margin" src="https://img.icons8.com/ios-glyphs/30/ffffff/twitter.png" link={data.twitter.Link} />}
                 {data.youtube && <Licon align="margin" src="https://img.icons8.com/material-rounded/24/ffffff/youtube-play.png" link={data.youtube.Link} />}
             </div>
-            <Link align="left fsize" click={Logout} title="Logout" />
+            <div className="width">
+                <Link align="red right fsize" click={DeleteAccount} title="Delete" />
+                <Link align="left fsize" click={Logout} title="Logout" />
+            </div>
         </div>
         }</div>);
-        render(template,document.getElementById("myaccount"));
+        render(template, document.getElementById("myaccount"));
     } else {
         if ((info.message === 'Token not match') || (info.message === "Failed to fetch")) {
             Logout();

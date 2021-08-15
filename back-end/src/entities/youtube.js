@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.youtube.com/c/${this.username}`",
+    Main: "`https://www.youtube.com/c/${this.query}`",
     Profile: {
         Url: "/about",
         // Script:"document.getElementsByTagName('button')[1].click()",

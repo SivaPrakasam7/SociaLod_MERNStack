@@ -6,14 +6,16 @@ import Profile from "../../../components/views/profile";
 import Title from "../../../components/views/title";
 import Paragraph from "../../../components/views/paragraph";
 import Viewpanel from "../actions/view";
+import Button from "../../../components/intract/button";
 
 export default function Viewplate(info) {
     document.getElementById('viewplate').style.display = "block";
     var template = (<div className="Glass-plate searchplate">
-        <Link align="left fsize" click={() => { Viewpanel(info) }} title="View" />
+        <div className="width"><Link align="left red fsize" click={() => { }} title="Report" /><Link align="left fsize" click={() => { Viewpanel(info) }} title="View" /></div>
         <Profile src={info.Profile} />
         <Title align="h2" title={info.Name} />
         <Paragraph cont={info.About} />
+        <Button click={() => { }} txt="Connect" />
         <div className="padding bottom">
             <Licon align="margin" src="https://img.icons8.com/material-sharp/24/ffffff/mail.png" link={"mailto:" + info.Email} />
             <Licon align="margin" src="https://img.icons8.com/material-outlined/24/ffffff/phone.png" link={"https://wa.me/" + info.MobileNo} />

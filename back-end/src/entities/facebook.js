@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.facebook.com/${this.username}`",
+    Main: "`https://www.facebook.com/${this.query}`",
     Login: [`document.cookie="c_user=${process.env.FB_C_USER}"`, `document.cookie="xs=${process.env.FB_XS}"`],
     Profile: {
         xpath: "//*[name()='svg' and contains(@style,'height: 168px; width: 168px;')]/*[name()='g']/*[name()='image']",

@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.reddit.com/user/${this.username}`",
+    Main: "`https://www.reddit.com/user/${this.query}`",
     Profile: {
         xpath: "//img[contains(@class,'_2bLCGrtCCJIMNCZgmAMZFM') or contains(@class,'_2TN8dEgAQbSyKntWpSPYM7 _3Y33QReHCnUZm9ewFAsk8C')]",
         func: "elem.getAttribute('src')"

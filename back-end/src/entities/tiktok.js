@@ -1,6 +1,6 @@
 module.exports = {
-    Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.tiktok.com/@${this.username}`",
+    Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless', 'proxy-server=socks5://localhost:9050'],
+    Main: "`https://www.tiktok.com/@${this.query}`",
     Login: ['document.cookie="s_v_web_id=verify_7006b00f24f5c22d88359b4fe78a57a2"'],
     Profile: {
         xpath: "//img[@alt='']",

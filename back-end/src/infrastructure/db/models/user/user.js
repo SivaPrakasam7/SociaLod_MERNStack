@@ -1,9 +1,9 @@
 const mongoose = require('mongoose'),
     walker = require('../../../../application/services/util_services/utils').walker,
     UserSchema = {
-        Profile:{
-            type:String,
-            required:true
+        Profile: {
+            type: String,
+            required: true
         },
         Name: {
             type: String,
@@ -26,7 +26,7 @@ const mongoose = require('mongoose'),
             type: String,
             default: 'Nothing to show'
         },
-        Views:[Object],
+        Views: [Object],
     };
 
 for (var v of walker('../../../../src/infrastructure/db/models/sites', 'js')) {

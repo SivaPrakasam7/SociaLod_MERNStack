@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://www.medium.com/@${this.username}`",
+    Main: "`https://www.medium.com/@${this.query}`",
     Profile: {
         Url: "/about",
         xpath: "//img[@role='presentation']",

@@ -7,8 +7,8 @@ exports.scrap = async (username, site) => {
     const ainfo = await Site.findOne({ Username: username })
         .then((info) => { return { err: false, message: info } })
         .catch((err) => { return { err: true, message: err } });
-    if (ainfo.message === "") {
-        const info = await (new Browser(username, require(`../../../entities/${site}`))).scrap().catch((err) => { return { err: true, message: err } });
+    if (ainfo.message === "" || !ainfo.message) {
+        const info = await Browser.scrap(username, require(`../../../entities/${site}`)).catch((err) => { return { err: true, message: err } });
         if (info.err) return info;
         return await Site.create(info)
             .then((info) => { return { err: false, message: info } })
@@ -20,7 +20,7 @@ exports.scrap = async (username, site) => {
 exports.check = async (username) => {
     const results = {};
     for (var v of walker('../../../entities', 'js')) {
-        await ((new Browser(username, require(v.path))).scrap())
+        await Browser.scrap(username, require(v.path))
             .then(info => {
                 results[v.categeory] = { err: true, message: require(`../../../infrastructure/db/models/sites/${v.categeory}`).model(info) };
             })

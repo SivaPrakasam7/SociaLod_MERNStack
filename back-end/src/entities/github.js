@@ -1,6 +1,6 @@
 module.exports = {
     Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking', 'headless'],
-    Main: "`https://github.com/${this.username}`",
+    Main: "`https://github.com/${this.query}`",
     Profile: {
         xpath: "//img[contains(@src,'https://avatars.githubusercontent.com/u/') and contains(@src,'?v=4')]",
         func: "elem.getAttribute('src')"
@@ -30,7 +30,7 @@ module.exports = {
     Projects: {
         xpath: "//div[contains(@class,'pinned-item-list-item-content')]",
         func: {
-            Link: "elem.findElement(By.xpath(\".//a[contains(@class,'text-bold flex-auto min-width-0 ')]\")).then(e=>{return e.getAttribute('href')}).catch(err=>{return null})",
+            Link: "elem.findElement(By.xpath(\".//a[contains(@class,'text-bold flex-auto min-width-0')]\")).then(e=>{return e.getAttribute('href')}).catch(err=>{return null})",
             Content: "elem.getText().then(res => { return res.trim().split('\\n').filter(Boolean)})"
         }
     },

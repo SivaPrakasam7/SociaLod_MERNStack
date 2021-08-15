@@ -107,6 +107,7 @@
 .linktext{
   color: var(--text);
   cursor: pointer;
+  font-weight: bolder;
 }
 
 /* Navigation bar */
