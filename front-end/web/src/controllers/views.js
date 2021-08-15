@@ -7,6 +7,7 @@ import Account from '../assemblers/account';
 import Forget from '../assemblers/forget';
 import PageNotFound from '../assemblers/pagenotfound';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import ForgetReq from '../assemblers/forgetreq';
 
 function Auth() {
     return (
@@ -17,7 +18,8 @@ function Auth() {
                 <Route path="/signin" component={Login} />
                 <Route path="/signup" component={Register} />
                 <Route path="/account" component={Account} />
-                <Route path="/forget/:id" component={Forget} />
+                <Route path="/forget" component={ForgetReq}/>
+                <Route path="/reset/:id" component={Forget} />
                 <Route path="*" component={PageNotFound}/>
             </Switch>
         </Router>

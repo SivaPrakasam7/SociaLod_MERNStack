@@ -4,6 +4,7 @@ const express = require('express'),
     connectMDB = require('./src/infrastructure/db/connection'),
     path = require('path'),
     cors = require('cors'),
+    helmet = require('helmet'),
     app = express();
 
 require('dotenv').config({ path: path.resolve(__dirname, './src/infrastructure/config/.env') });
@@ -32,6 +33,10 @@ app.get('/', (req, res) => {
 app.use('/api', route);
 
 app.use(errorHandler);
+
+process.on("uncaughtException", (err) => {
+    process.exit();
+});
 
 app.listen(PORT, () => {
     console.log(`Server listen at ${process.env.URL}`)

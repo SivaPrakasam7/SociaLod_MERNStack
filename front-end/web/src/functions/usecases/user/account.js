@@ -22,7 +22,7 @@ export default async function Myaccount() {
         .catch(err => { return err });
     if (!info.err && (info.message !== "Failed to fetch")) {
         var data = info.message;
-        var template = (<div>{data && <div className="Glass-plate searchplate">
+        var template = (<div className="Glass-plate searchplate">
             <div className="width">
                 <Link align="right fsize" click={() => { }} title="Edit" />
                 <Link align="left fsize" click={() => { Viewpanel(data) }} title="View" />
@@ -55,8 +55,7 @@ export default async function Myaccount() {
                 <Link align="red right fsize" click={DeleteAccount} title="Delete" />
                 <Link align="left fsize" click={Logout} title="Logout" />
             </div>
-        </div>
-        }</div>);
+        </div>);
         try{
             render(template, document.getElementById("myaccount"));
         }

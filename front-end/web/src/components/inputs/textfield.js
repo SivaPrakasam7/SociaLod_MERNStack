@@ -11,7 +11,7 @@ export default class Textfield extends Component {
                             <img src={this.props.icon} alt='' />
                         </td>
                         <td>
-                            <input type={this.props.type} id={this.props.id} name={this.props.name} placeholder={this.props.cont} onKeyDown={Secure} />
+                            <input type={this.props.type} id={this.props.id} name={this.props.name} placeholder={this.props.cont} onKeyDown={Secure} onPaste={Secure} />
                         </td>
                     </tr>
                 </tbody>

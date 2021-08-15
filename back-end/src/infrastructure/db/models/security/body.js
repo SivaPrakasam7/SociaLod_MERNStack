@@ -15,8 +15,13 @@ Body = new mongoose.Schema({
             message: '{VALUE} is not valid name'
         }
     },
-    profile:{
-        type:String
+    profile: {
+        type: String,
+        valiadte: {
+            validator: function (v) {
+                return /data:image\/[a-zA-Z]*;base64,[^\"]*/g.test(v);
+            }
+        }
     },
     name: {
         type: String,
@@ -33,7 +38,7 @@ Body = new mongoose.Schema({
         trim: true,
         validate: {
             validator: function (v) {
-                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/g.test(v);
+                return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/g.test(v);
             },
             message: '{VALUE} is not valid email'
         }
@@ -43,7 +48,7 @@ Body = new mongoose.Schema({
         trim: true,
         validate: {
             validator: function (v) {
-                return /[a-zA-Z0-9`~!@#$%^&*()_+-={}|\[\]\\:";'<>?,./]+/g.test(v);
+                return /[a-zA-Z0-9~`!@#$%^&*()_+-={}|[\]\\:";'<>?,./]{8,}/g.test(v);
             },
             message: 'not valid password'
         }

@@ -19,6 +19,10 @@
   color: var(--text);
 }
 
+/* .textfield input[type="text"]:focus,.textfield input[type="password"]:focus{
+  border-bottom: 1px solid red;
+} */
+
 .textfield img{
   height: 1.5rem;
   width: 1.5rem;

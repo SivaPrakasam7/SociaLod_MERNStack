@@ -8,7 +8,7 @@ import Viewplate from "../actions/viewplate";
 
 export default async function GetUser(id) {
     render(<Process />, document.getElementById("status"));
-    const info = await fetch(`${window.env.BURL}/api/service/view_user`, { method: "POST", headers: { 'Authorization': `Bearer ${document.cookie.replace("CID=", "")}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ userid: id }) })
+    const info = await fetch(`${window.env.BURL}/api/service/view_user`, { method: "POST", headers: { 'Authorization': `Bearer ${document.cookie.replace("CID=", "")}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ userid: atob(id) }) })
         .then(res => { return res.json() })
         .then(data => { return data })
         .catch(err => { return err });

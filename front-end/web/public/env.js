@@ -1,3 +1,3 @@
 window.env = {
-  "BURL": "http://localhost:5000"
+  "BURL": "http://192.168.1.143:5000"
 };
