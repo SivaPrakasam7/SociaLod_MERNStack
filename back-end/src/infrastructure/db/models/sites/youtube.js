@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
             type: String,
             trim: true
         },
-        Username: {
+        Query: {
             type: String,
             trim: true
         },

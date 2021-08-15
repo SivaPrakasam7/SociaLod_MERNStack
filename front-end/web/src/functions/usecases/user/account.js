@@ -57,7 +57,10 @@ export default async function Myaccount() {
             </div>
         </div>
         }</div>);
-        render(template, document.getElementById("myaccount"));
+        try{
+            render(template, document.getElementById("myaccount"));
+        }
+        catch(err){}
     } else {
         if ((info.message === 'Token not match') || (info.message === "Failed to fetch")) {
             Logout();

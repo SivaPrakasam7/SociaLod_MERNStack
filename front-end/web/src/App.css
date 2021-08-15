@@ -12,6 +12,9 @@
 
 .App{
   text-align: center;
+  background:radial-gradient(center, #00000099 50%, #00000035);
+  width: 100vw;
+  height: 100vh;
 }
 
 *{
@@ -20,18 +23,17 @@
 
 body{
   margin: 0rem;
-  background: var(--bgcolor);
+  background-image: url('./img/wp2043502-computer-science-engineering-wallpapers.jpg') !important;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center;
+  background-attachment: fixed;
   transition: none;
 }
 
 /* Glass panel */
 
 .Glass-plate{
-  background-image: url('./img/wallpaperflare.com_wallpaper.jpg') !important;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
   background: linear-gradient(to top left,var(--glass3) 20%,var(--glass2) 80%,var(--glass1) 90%);
   box-shadow: 1px 1px 5px 0px var(--bgcolor),0px 0px 0px 1px var(--border);
   padding: 1rem;
@@ -40,6 +42,7 @@ body{
   border-radius: 0.5rem;
   color:var(--text);
 }
+
 
 /* Alignment */
 
@@ -172,6 +175,14 @@ body{
 ::-webkit-scrollbar{
   width: 0px;
   /* background: snow; */
+}
+
+::placeholder{
+  color: var(--text);
+}
+.background{
+  background: #000000 !important;
+  padding: 0.5rem;
 }
 
 .unmargin{
