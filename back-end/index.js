@@ -21,7 +21,7 @@ app.use(cors(CorsOption));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    var params = ['bearer token required', '{"email":"","password":""}', '{"profile":"","name":"","email":"","mobileno":"","password":"","about":""}', 'bearer token required', '{"email":""}', '{"password":""}', 'bearer token required', 'bearer token required-{"profile":"","name":"","mobileno":"","about":""}', 'bearer token required', 'bearer token required-{"username":"","site":""}', 'bearer token required-{"username":"","site":""}', 'bearer token required', 'bearer token required-{"username":""}', 'bearer token required-{"userid":""}', 'bearer token required-{"username":"","site":""}']
+    var params = ['{"email":""}','{"email":""}','bearer token required', '{"email":"","password":""}', '{"profile":"","name":"","email":"","mobileno":"","password":"","about":""}', 'bearer token required', '{"email":""}', '{"password":""}', 'bearer token required', 'bearer token required-{"profile":"","name":"","mobileno":"","about":""}', 'bearer token required', 'bearer token required-{"username":"","site":""}', 'bearer token required-{"username":"","site":""}', 'bearer token required', 'bearer token required-{"username":""}', 'bearer token required-{"userid":""}', 'bearer token required-{"username":"","site":""}','{"email":"","subject":"","template":""}']
     var info = `<h1>SociaLod Backend Manual</h1><b>Root path: /api/</b><table><tr><th>Paths</th><th>Methods</th><th>Parameters</th></tr>`;
     for (var i in route.stack) {
         info = info + `<tr><td>${route.stack[i].route.path}</td><td>${Object.keys(route.stack[i].route.methods)}</td><td>${params[i]}</td></tr>`;
