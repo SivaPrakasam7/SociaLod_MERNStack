@@ -7,7 +7,7 @@ export default class Navigation extends Component {
         if (CKIE()) {
             return (<nav>
                 <a className="a" href="/#/">Home</a>
-                <a className="a" href="/#/signup">Sign Up/In</a>
+                <a className="a" href="/#/signin">Sign Up/In</a>
             </nav>)
         } else {
             return (<nav>
