@@ -10,7 +10,6 @@ Info
     Database : MongoDB 
     Backend : Express, Node.js (Clean architecture)
     Frontend : React (Clean architecture)
-    Additional Mobile : Flutter (Pending)
 
 Deployment
 ---
