@@ -8,6 +8,10 @@ const requests = require('../middleware/requestHandler'),
 /*** Routes ***/
 
 /* Authentication services */
+// Mail verification
+router.route('/auth/secret').post(secure.body, requests.secret);
+
+router.route('/auth/mailverify').post(secure.body, requests.mailVerify);
 
 // Token verify
 router.route('/auth/verify').get(secure.token);
@@ -16,7 +20,7 @@ router.route('/auth/verify').get(secure.token);
 router.route('/auth/login').post(secure.body, requests.login);
 
 // Registrations
-router.route('/auth/register').post(secure.body, requests.register);
+router.route('/auth/register').post(secure.tokenBody, requests.register);
 
 // Logout
 router.route('/auth/logout').get(secure.token, requests.logout);
@@ -60,5 +64,9 @@ router.route('/service/scrap').post(secure.tokenBody, requests.scraper);
 
 // All entities scraper
 // router.route('/service/check').post(secure.token, requests.checker);
+
+/* Other services */
+// Mail service
+router.route('/service/mail').post(secure.tokenBodyDestroy, requests.mailer);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 module.exports = {
-    Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking'],
+    Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking','headless'],
     Main: "`https://www.bing.com/search?q=${this.query}`",
     Results: {
         Script: "return window.scrollTo(0, document.body.scrollHeight)",

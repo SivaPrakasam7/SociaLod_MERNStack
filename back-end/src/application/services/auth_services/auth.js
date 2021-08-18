@@ -3,6 +3,29 @@ const bcrypt = require('bcrypt'),
     tokener = require('../../../domain/Tokener'),
     mailer = require('../util_services/mailer');
 
+
+// Mail verification
+exports.secret = async (data) => {
+    const mail = {};
+    code = (await tokener.generate({ email: data.email }, process.env.SECRET_KEY)).message.token;
+    mail.subject = "SociaLod Mail verification";
+    mail.template = `Your mailing secret code is ${code}`;
+    mail.email = data.email;
+    return await mailer(mail);
+};
+
+exports.mailVerify = async (data) => {
+    const mail = {},
+        info = await User.findOne({ Email: data.email }, 'Email');
+    if (!info) {
+        code = (await tokener.generate({ email: data.email }, process.env.SECRET_KEY)).message.token;
+        mail.subject = "SociaLod registration Link";
+        mail.template = `Click and register here <a href="${process.env.FURL}/#/register/${code}">Reset</a>`;
+        mail.email = data.email;
+        return await mailer(mail);
+    } else return { err: true, message: "Mail already registered" };
+};
+
 // Login
 exports.login = async (data) => {
     const { email, password } = data;
@@ -16,11 +39,11 @@ exports.login = async (data) => {
 };
 
 // Registration
-exports.register = async (data) => {
-    const { profile, name, email, mobileno, password, about } = data;
+exports.register = async (email, data) => {
+    const { profile, name, mobileno, password, about } = data;
     return await User.create({ Profile: profile, Name: name, Email: email, MobileNo: mobileno, password: await bcrypt.hash(password, await bcrypt.genSalt(10)), About: about })
         .then(async (info) => { return await tokener.generate({ id: info._id }, process.env.SECRET_KEY) })
-        .catch((err) => { return { err: true, message: "Out of service" } });
+        .catch((err) => { return { err: true, message: err } });
 };
 
 // Logout
@@ -39,7 +62,7 @@ exports.forget = async (email) => {
         mail.email = data.Email;
         return await mailer(mail);
     } else {
-        return { err: false, message: "Mail not registered" }
+        return { err: true, message: "Mail not registered" };
     }
 };
 

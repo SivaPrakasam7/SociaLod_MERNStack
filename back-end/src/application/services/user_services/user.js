@@ -21,3 +21,17 @@ exports.delete = async (id) => {
         .then(() => { return { err: false, message: "User account deleted successfully" } })
         .catch((err) => { return { err: true, message: "Out of service" } });
 };
+
+// Mail service
+exports.mailService = async (vemail, data) => {
+    const { email, subject, template } = data,
+        mail = {};
+    if (vemail == email) {
+        mail.email = vemail;
+        mail.subject = subject;
+        mail.template = template;
+        return await mailer(mail);
+    } else {
+        return { err: true, message: "Don't use any tricks" }
+    }
+};

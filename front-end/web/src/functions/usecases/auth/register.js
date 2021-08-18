@@ -5,11 +5,11 @@ import Clear from "../actions/sclear";
 import Success from "../../../components/status/success";
 import Validate from "../../validation/validate";
 
-export default async function Registersubmit() {
+export default async function Registersubmit(token) {
     const form = document.getElementById('register');
     if (Validate(form)) {
         if (form.password.value === form.cpassword.value) {
-            const info = await fetch(`${window.env.BURL}/api/auth/register`, { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ profile: document.getElementById("profile").src, name: form.name.value, email: form.email.value, mobileno: form.mobile.value, about: form.about.value, password: form.password.value }) })
+            const info = await fetch(`${window.env.BURL}/api/auth/register`, { method: "POST", headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ profile: document.getElementById("profile").src, name: form.name.value, mobileno: form.mobile.value, about: form.about.value, password: form.password.value }) })
                 .then(res => { return res.json() })
                 .then(data => { return data })
                 .catch(err => { return err });

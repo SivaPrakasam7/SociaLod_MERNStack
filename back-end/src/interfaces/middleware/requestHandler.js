@@ -2,7 +2,21 @@ const scrap = require('../../application/services/scrap_services/scrap'),
     authendication = require('../../application/services/auth_services/auth'),
     useraccess = require('../../application/services/user_services/user'),
     process = require('../../application/services/user_services/process');
+
 /* Authendication services */
+
+// Mail verification
+exports.secret = async (req, res, next) => {
+    const info = await authendication.secret(req.body);
+    if (!info.err) return res.send(info);
+    else return next(info);
+};
+
+exports.mailVerify = async (req, res, next) => {
+    const info = await authendication.mailVerify(req.body);
+    if (!info.err) return res.send(info);
+    else return next(info);
+};
 
 // loginx
 exports.login = async (req, res, next) => {
@@ -13,7 +27,7 @@ exports.login = async (req, res, next) => {
 
 // register
 exports.register = async (req, res, next) => {
-    const info = await authendication.register(req.body);
+    const info = await authendication.register(req.status.uid.message.email, req.body);
     if (!info.err) return res.status(201).send(info);
     else return next(info);
 };
@@ -112,5 +126,12 @@ exports.scraper = async (req, res, next) => {
 exports.checker = async (req, res, next) => {
     const info = await scrap.check(req.body.username, req.body.site);
     if (!info.err) return res.status(201).send(info);
+    else return next(info);
+};
+
+// Other services
+exports.mailer = async (req, res, next) => {
+    const info = await useraccess.mailService(req.status.uid.message.email, req.body);
+    if (!info.err) return res.send(info);
     else return next(info);
 };

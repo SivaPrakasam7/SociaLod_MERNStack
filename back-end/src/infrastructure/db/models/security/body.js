@@ -73,6 +73,26 @@ Body = new mongoose.Schema({
             message: '{VALUE} is not valid about'
         }
     },
+    subject: {
+        type: String,
+        trim: true,
+        validate: {
+            validator: function (v) {
+                return /.*/g.test(v);
+            },
+            message: '{VALUE} is not valid about'
+        }
+    },
+    template: {
+        type: String,
+        trim: true,
+        validate: {
+            validator: function (v) {
+                return /.*/g.test(v);
+            },
+            message: '{VALUE} is not valid about'
+        }
+    },
     username: {
         type: String,
         trim: true,
