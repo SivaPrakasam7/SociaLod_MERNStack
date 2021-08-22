@@ -20,7 +20,7 @@ exports.mailVerify = async (data) => {
     if (!info) {
         code = (await tokener.generate({ email: data.email }, process.env.SECRET_KEY)).message.token;
         mail.subject = "SociaLod registration Link";
-        mail.template = `Click and register here <a href="${process.env.FURL}/#/register/${code}">Reset</a>`;
+        mail.template = `Click and register here <a href="${process.env.FURL}/#/register/${code}">Register here</a>`;
         mail.email = data.email;
         return await mailer(mail);
     } else return { err: true, message: "Mail already registered" };
@@ -43,7 +43,7 @@ exports.register = async (email, data) => {
     const { profile, name, mobileno, password, about } = data;
     return await User.create({ Profile: profile, Name: name, Email: email, MobileNo: mobileno, password: await bcrypt.hash(password, await bcrypt.genSalt(10)), About: about })
         .then(async (info) => { return await tokener.generate({ id: info._id }, process.env.SECRET_KEY) })
-        .catch((err) => { return { err: true, message: err } });
+        .catch((err) => { return { err: true, message: err.message } });
 };
 
 // Logout
@@ -61,9 +61,7 @@ exports.forget = async (email) => {
         mail.template = `Create new password from the below link <a href="${process.env.FURL}/#/reset/${reset}">Reset</a>`;
         mail.email = data.Email;
         return await mailer(mail);
-    } else {
-        return { err: true, message: "Mail not registered" };
-    }
+    } else return { err: true, message: "Mail not registered" };
 };
 
 // Reset password

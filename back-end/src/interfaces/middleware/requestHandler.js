@@ -1,7 +1,17 @@
 const scrap = require('../../application/services/scrap_services/scrap'),
     authendication = require('../../application/services/auth_services/auth'),
     useraccess = require('../../application/services/user_services/user'),
-    process = require('../../application/services/user_services/process');
+    process = require('../../application/services/user_services/process'),
+    dashboard=require('../../application/services/user_services/dashboard');
+
+/* Dashboard data */
+
+// dashboard data count
+exports.dashboard=async (req,res,next)=>{
+    const info = await dashboard.dashboard();
+    if (!info.err) return res.send(info);
+    else return next(info);
+};
 
 /* Authendication services */
 
@@ -12,6 +22,7 @@ exports.secret = async (req, res, next) => {
     else return next(info);
 };
 
+// Registration mail verification
 exports.mailVerify = async (req, res, next) => {
     const info = await authendication.mailVerify(req.body);
     if (!info.err) return res.send(info);
@@ -117,7 +128,7 @@ exports.search = async (req, res, next) => {
 
 // Single scraping service
 exports.scraper = async (req, res, next) => {
-    const info = await scrap.scrap(req.body.username, req.body.site);
+    const info = await scrap.scrap(req.body.username.toLowerCase(), req.body.site);
     if (!info.err) return res.status(201).send(info);
     else return next(info);
 };

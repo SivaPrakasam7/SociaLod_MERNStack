@@ -24,4 +24,4 @@ exports.walker = (dir, ext) => {
 // Generate otp
 exports.otp = (N) => {
     return Array(N + 1).join((Math.random().toString(36) + (+new Date).toString(36)).slice(2, 18)).slice(0, N);
-}
+};

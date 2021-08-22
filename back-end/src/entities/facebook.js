@@ -1,5 +1,5 @@
 module.exports = {
-    Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking'],
+    Options: ['disable-notifications', 'disable-default-apps', 'disable-popup-blocking','headless'],
     Main: "`https://www.facebook.com/${this.query}`",
     Login: [`document.cookie="c_user=${process.env.FB_C_USER}"`, `document.cookie="xs=${process.env.FB_XS}"`],
     Profile: {

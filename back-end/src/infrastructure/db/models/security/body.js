@@ -20,7 +20,8 @@ Body = new mongoose.Schema({
         valiadte: {
             validator: function (v) {
                 return /data:image\/[a-zA-Z]*;base64,[^\"]*/g.test(v);
-            }
+            },
+            message: 'Profile is not valid name'
         }
     },
     name: {

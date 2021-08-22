@@ -1,4 +1,5 @@
-const User = require('../../../infrastructure/db/models/user/user');
+const User = require('../../../infrastructure/db/models/user/user'),
+    mailer = require('../util_services/mailer');
 
 // User info
 exports.user = async (id) => {
