@@ -65,10 +65,10 @@ router.route("/service/search").post(secure.tokenBody, requests.search);
 router.route("/service/view_user").post(secure.tokenBody, requests.viewUser);
 
 // Report user
-router.route("/service/report_user").post();
+router.route("/service/report_user").post(secure.tokenBody, requests.report);
 
 // Connect user
-router.route("/service/connect_user").post();
+router.route("/service/connect_user").post(secure.tokenBody, requests.connect);
 
 // Single scraper
 router.route("/service/scrap").post(secure.tokenBody, requests.scraper);

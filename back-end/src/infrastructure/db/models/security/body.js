@@ -84,7 +84,7 @@ Body = new mongoose.Schema({
             message: '{VALUE} is not valid about'
         }
     },
-    template: {
+    message: {
         type: String,
         trim: true,
         validate: {
