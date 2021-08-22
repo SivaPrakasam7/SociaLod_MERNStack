@@ -14,7 +14,7 @@ Info
 Deployment
 ---
 # Backend : <a target="_blank" href="https://socialod-backend.herokuapp.com">https://socialod-backend.herokuapp.com</a><br/>
-# Frontend : <a target="_blank" href="https://socialod.herokuapp.com">https://socialod.herokuapp.com</a>
+# Frontend : <a target="_blank" href="https://socialod-ui.herokuapp.com">https://socialod-ui.herokuapp.com</a>
 Default credentials for frontend `test@gmail.com:testtest`
 
 <b>Note : Selenium doesn't work in this deployment, but in local system it's perfectly works</b>
