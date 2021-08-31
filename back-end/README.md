@@ -3,7 +3,7 @@ Use this api for scrap user information. Scrap by social media profile links of 
 
 RUN
 ---
-    # ndoe index
+    # node index
     Server listen at http://localhost:5000
     Database connected
 
