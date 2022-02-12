@@ -21,10 +21,10 @@ Default credentials for frontend `test@gmail.com:testtest`
 <b>Note : Selenium doesn't work in this deployment, but in local system it's perfectly works</b>
 
 # Screenshots
-!["singin"]()
-!["home"]()
-!["account"]()
-!["search"]()
-!["scraped_details"]()
+!["singin"](https://github.com/SivaPrakasam7/SociaLod_MERNStack/blob/master/screenshots/signin.png?raw=true)
+!["home"](https://github.com/SivaPrakasam7/SociaLod_MERNStack/blob/master/screenshots/home.png?raw=true)
+!["account"](https://github.com/SivaPrakasam7/SociaLod_MERNStack/blob/master/screenshots/account.png?raw=true)
+!["search"](https://github.com/SivaPrakasam7/SociaLod_MERNStack/blob/master/screenshots/search.png?raw=true)
+!["scraped_details"](https://github.com/SivaPrakasam7/SociaLod_MERNStack/blob/master/screenshots/scraped_details.png?raw=true)
 
 
